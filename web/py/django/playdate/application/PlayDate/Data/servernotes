@@ -1,0 +1,29 @@
+🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱
+░█▀▄░█▀█░▀█▀░█▀█░█▀▄░█▀█░█▀▀░█▀▀░░░░░█▀▄░█▀▀░█▀▀░█▀▀░▀█▀░░░█▀▀░█▀█░█▄█░█▄█░█▀█░█▀█░█▀▄░█▀▀
+░█░█░█▀█░░█░░█▀█░█▀▄░█▀█░▀▀█░█▀▀░░░░░█▀▄░█▀▀░▀▀█░█▀▀░░█░░░░█░░░█░█░█░█░█░█░█▀█░█░█░█░█░▀▀█
+░▀▀░░▀░▀░░▀░░▀░▀░▀▀░░▀░▀░▀▀▀░▀▀▀░░░░░▀░▀░▀▀▀░▀▀▀░▀▀▀░░▀░░░░▀▀▀░▀▀▀░▀░▀░▀░▀░▀░▀░▀░▀░▀▀░░▀▀▀
+🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱
+🐱 mysql -u (username) -p
+🐱 DROP DATABASE playdate;
+🐱CREATE DATABASE playdate;
+🐱
+🐱 rm -rf */migrations && p manage.py makemigrations home events groups && p manage.py migrate
+🐱
+🐱 mysql -u (username) -p 
+🐱
+🐱 use playdate
+🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱
+░▀█▀░█▄█░█▀█░█▀█░█▀▄░▀█▀░░░█▀█░█░█░█▀▄░█░░░▀█▀░█▀▀░░░█▀▀░█░█░█▀▀░█▀█░▀█▀░░█▀▄░█▀█░▀█▀░█▀█ 
+░░█░░█░█░█▀▀░█░█░█▀▄░░█░░░░█▀▀░█░█░█▀▄░█░░░░█░░█░░░░░█▀▀░▀▄▀░█▀▀░█░█░░█░ ░█░█░█▀█░░█░░█▀█
+░▀▀▀░▀░▀░▀░░░▀▀▀░▀░▀░░▀░░░░▀░░░▀▀▀░▀▀░░▀▀▀░▀▀▀░▀▀▀░░░▀▀▀░░▀░░▀▀▀░▀░▀░░▀░░ ▀▀░░▀░▀░░▀░░▀░▀
+🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱
+LOAD DATA local INFILE '/home/andy/csc648-848-01-sw-engineering-summer-22-Team03/application/PlayDate/Data/Address.csv' INTO TABLE Address FIELDS TERMINATED BY ';';
+🐱
+LOAD DATA local INFILE '/home/andy/csc648-848-01-sw-engineering-summer-22-Team03/application/PlayDate/Data/publicevents.csv' INTO TABLE PublicEvent FIELDS TERMINATED BY ';';
+🐱
+🐱 If the above does not work make sure to have local_infile on:
+🐱 SET GLOBAL local_infile = true;
+🐱 SHOW GLOBAL VARIABLES LIKE 'local_infile';
+🐱 Or you can login with local_infile on using:
+🐱 mysql --local-infile -u username -p
+🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱🐱

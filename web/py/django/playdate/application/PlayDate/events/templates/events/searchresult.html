@@ -1,0 +1,26 @@
+{% if submitbutton == 'Filter' and request.GET.q != '' an %}
+<div class="table-responsive">
+    <table class="table widget-26">
+        <tbody>
+            {% for result in results %}
+            <tr>
+                <td>
+                    <div class="event_name">
+                        {{result.name}}
+                        <p class="m-0"><a href={{result.url}}  class="url">Register here</a>
+                    </div>
+                </td>
+                <td>
+                    <div class="widget">
+
+                        <p class="text-muted m-0"> <span class="location"> {{result.address.street}}, {{result.address.city}}, {{result.address.state}}, {{result.address.country}} - {{result.address.zipcode}}</span></p>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+
+{% endif %}

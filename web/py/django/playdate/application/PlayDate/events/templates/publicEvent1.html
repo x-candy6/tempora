@@ -1,0 +1,104 @@
+{% include "header.html" %}
+<!-- #marty -->
+
+<body>
+
+    {% block content %}
+    {% if user.is_authenticated %}
+    {% load static %}
+    {% include "registered_navbar.html" %}
+    {% else %}
+    {% load static %}
+    {% include "general_navbar.html" %}
+    {% endif %}
+    {% endblock %}
+    <br><br>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-8 text-center pt-3">
+                <h4>Splashing & Swimming at the San Leandro Family Aquatic Center</h4>
+                <img src="{% static 'media/san-leandro-aquatic2.jpeg' %}" width="500px" height="500px"
+                    class="card-img-top px-5 py-5" alt="...">
+
+                <p class="text-center px-5">Come splash into one of the City's three community pools!
+                    The Boys & Girls Club Pool is open year-round, while both San Leandro Family Aquatic Center and
+                    Farrelly are available seasonally. All of the pools are available for private rentals for birthday
+                    parties, business parties, family parties, and more. Swim lessons are available at varying times.
+                    For class times see the aquatics schedule in the current activity guide. Swim Tickets for
+                    Recreational Swim and Lap Swim can be purchased at each pool and at the Customer Service Desk. The
+                    pools are closed for all City holidays.</p>
+            </div>
+
+            <div class="col-4 mx-auto pt-5">
+                <h4 class="text-left">Location:</h4>
+                <div class="dropdown-divider me-5"></div>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3157.080893347609!2d-122.1497514849239!3d37.69429922455897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f90230c0c4d29%3A0xbaf6ef9bb2204d91!2sSan%20Leandro%20Family%20Aquatic%20Center!5e0!3m2!1sen!2sus!4v1657929327624!5m2!1sen!2sus"
+                    width="350" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                <h4 class="pt-5">Hours:</h4>
+                <div class="dropdown-divider me-5"></div>
+                <p>Friday: 1–4:45PM<br>
+                    Saturday: 10AM–4:45PM<br>
+                    Sunday: 1–4:45PM<br>
+                    Monday: 10AM–7PM<br>
+                    Tuesday: 10AM–7PM<br>
+                    Wednesday: 10AM–7PM<br>
+                    Thursday: 10AM–7PM<br></p>
+            </div>
+            <div class="row mt-5">
+                <h4>Upcoming Public Events:</h4>
+                <div class="dropdown-divider"></div>
+                <div class="col card mx-2 my-2" style="width: 20rem;">
+                    <img src="{% static 'media/outdoor-movies.jpeg' %}" class="card-img-top mt-2" width="50px"
+                        height="200px" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">East Bay Outdoor Summer Movie Round-Up</p>
+                        <a href="#" class="btn btn-primary">View details</a>
+                    </div>
+                </div>
+
+                <div class="col card mx-2 my-2" style="width: 20rem;">
+                    <img src="{% static 'media/oakland-ice-kids-skate.jpeg' %}" class="card-img-top mt-2" width="50px"
+                        height="200px" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Indoor Ice Skating in Oakland at Oakland Ice</p>
+                        <a href="#" class="btn btn-primary">View details</a>
+                    </div>
+                </div>
+                <div class="col card mx-2 my-2" style="width: 20rem;">
+                    <img src="{% static 'media/cheers_oakland.jpeg' %}" class="card-img-top mt-2" width="50px"
+                        height="200px" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Cheer On Oakland Roots Soccer Team</p>
+                        <a href="#" class="btn btn-primary">View details</a>
+                    </div>
+                </div>
+
+                <div class="col card mx-2 my-2" style="width: 20rem;">
+                    <img src="{% static 'media/u-pick-blueberries.jpeg' %}" class="card-img-top mt-2" width="50px"
+                        height="200px" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">U-Pick Blueberries at Duckworth Family Farm in Sebastopol</p>
+                        <a href="#" class="btn btn-primary">View details</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="gsfooter mt-auto bg-light py-1 d-none d-md-flex sticky-bottom  mt-2">
+        <div class="container-fluid text-center text-md-left">
+            <span class="text-dark ">
+                <a href="/termsofuse">Terms of Use | </a><a href="/privacy">Privacy Notice | </a><a
+                    href="/helpPage">Contact Us</a><br>
+            </span>
+            <span class="text-dark">Copyright © 2022 TheBabySitters. All rights reserved.</span>
+        </div>
+
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>View Member Profile</title>
+    </head>
+    <body>
+        {% csrf_token %}
+        <p>username: {{user}}</p>
+        <p>Profile Desc:{{profile.profileDesc}}</p>
+        <p>gender: {{account.gender}}</p>
+        <p>member since: {{account.date_joined}}</p>
+        <p>last active: {{account.last_login}}</p>
+        <br />
+        {% if profile.avatar.url != None %}
+        <img src="{{profile.avatar.url}}" style="width: 5%; height: 5%" alt="" />
+        {% endif %}
+    </body>
+</html>

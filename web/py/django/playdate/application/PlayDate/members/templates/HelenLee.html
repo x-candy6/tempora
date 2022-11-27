@@ -1,0 +1,99 @@
+{% include "header.html" %}
+<!-- #marty -->
+
+<body style="background-color: #9de2ff;">
+
+    {% block content %}
+    {% if user.is_authenticated %}
+    {% load static %}
+    {% include "registered_navbar.html" %}
+    {% else %}
+    {% load static %}
+    {% include "general_navbar.html" %}
+    {% endif %}
+    {% endblock %}
+    <br><br><br>
+
+    <div class="card mt-2 mx-auto" style="border-radius: 15px; width: 50rem;">
+        <div class="card-body p-4">
+            <div class="d-flex text-black">
+                <div class="flex-shrink-0">
+                    {% load static %}
+                    <img src="{% static 'media/HelenLee.jpg' %}" alt="Generic placeholder image" class="img-fluid"
+                        style="width: 180px; height: 180px; border-radius: 10px;">
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h5 class="mb-1">Helen Lee</h5>
+                    <p class="mb-2 pb-1" style="color: #2b2a2a;">Parent in San Francisco Bay Area</p>
+                    <div class="d-flex justify-content-start rounded-3 p-2 mb-2" style="background-color: #efefef;">
+                        <div>
+                            <p class="small text-muted mb-1">Posts</p>
+                            <p class="mb-0">13</p>
+                        </div>
+                        <div class="px-3">
+                            <p class="small text-muted mb-1">Friends</p>
+                            <p class="mb-0">76</p>
+                        </div>
+                    </div>
+                    <!-- <div class="d-flex pt-1">
+                        <button type="button" class="btn btn-outline-primary me-1 flex-grow-1">Send
+                            Message</button>
+                        <button type="button" class="btn btn-primary flex-grow-1">Add Friend</button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card mt-2 mx-auto" style="border-radius: 15px; width: 50rem;">
+        <div class="row ms-2 mt-2">
+            <h5><b>Her Posts:</b></h5>
+        </div>
+
+        <div class="row">
+            <div class="col card ms-3 my-2">
+                <img src="{% static 'media/helen_p1.jpg' %}" width="80px" height="100px" class="card-img-top  mt-2"
+                    alt="...">
+                <div class="card-body">
+                    <p class="card-text">Let's go to San Pablo Park on Saturday.</p><br>
+                </div>
+            </div>
+
+            <div class="col card ms-3 my-2">
+                <img src="{% static 'media/ocean-view-park.jpg' %}" width="80px" height="100px"
+                    class="card-img-top  mt-2" alt="...">
+                <div class="card-body">
+                    <a class="card-text" href="/events/memberEvent1">
+                        <p>Take Kids to Ocean View @ 5 p.m. today</p>
+                    </a><br>
+                </div>
+            </div>
+
+            <div class="col card ms-3 me-3 my-2">
+                <img src="{% static 'media/helen_p3.jpg' %}" class="card-img-top mt-2" width="80px" height="100px"
+                    alt="...">
+                <div class="card-body">
+                    <p class="card-text">Take Kids to feed animals at Six Flag.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row my-2 justify-content-center">
+            <a href="#" class="btn btn-primary me-4" style="width: 15rem;">See More</a>
+        </div>
+
+        <footer class="gsfooter mt-auto bg-light py-1 d-none d-md-flex fixed-bottom  mt-0">
+            <div class="container-fluid text-center text-md-left">
+                <span class="text-dark ">
+                    <a href="/termsofuse">Terms of Use | </a><a href="/privacy">Privacy Notice | </a><a
+                        href="/helpPage">Contact Us</a><br>
+                </span>
+                <span class="text-dark">Copyright © 2022 TheBabySitters. All rights reserved.</span>
+            </div>
+
+        </footer>
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+{% include "header.html" %}
+<!-- #marty -->
+
+<body style="background-color: #9de2ff;">
+
+    {% block content %}
+    {% if user.is_authenticated %}
+    {% load static %}
+    {% include "registered_navbar.html" %}
+    {% else %}
+    {% load static %}
+    {% include "general_navbar.html" %}
+    {% endif %}
+    {% endblock %}
+    <br><br><br>
+    <div class="container">
+        <div>
+            <h5><b>Fun activities posted by our users:</b></h5>
+        </div>
+
+        <div class="row">
+            <div class="col card mx-2 my-2" style="border-radius: 15px; width: 18rem;">
+                <img src="{% static 'media/oakland-zoo.jpg' %}" width="300px" height="300px" class="card-img-top  mt-2"
+                    alt="...">
+                <div class="card-body">
+                    <p class="card-text">Let's go to Oakland Zoom this Saturday at 10 a.m.</p><br>
+                    <!-- Posted BY: <a href="#">Tom Taylor</a><br><br> -->
+                    Posted BY: Tom Taylor<br><br>
+                    <a href="#" class="btn btn-primary mx-5">View details</a>
+                    <a href="/events/signUpSucceed" class="btn btn-primary mx-4">Sign
+                        Up</a>
+                </div>
+            </div>
+
+            <div class="col card mx-2 my-2" style="border-radius: 15px; width: 18rem;">
+                <img src="{% static 'media/ocean-view-park.jpg' %}" class="card-img-top  mt-2" width="300px"
+                    height="300px" alt="...">
+                <div class="card-body">
+                    <p class="card-text"><a href="/events/memberEvent1">Take Kids to Ocean View @ 5 p.m. today.</a></p>
+                    <br>
+                    Posted BY: <a href="/about/HelenLee">Helen Lee</a><br><br>
+                    <a href="/events/memberEvent1" class="btn btn-primary mx-5">View details</a>
+                    <a href="/events/signUpSucceed" class="btn btn-primary mx-4">Sign
+                        Up</a>
+                </div>
+            </div>
+
+            <div class="col card mx-2 my-2" style="border-radius: 15px; width: 18rem;">
+                <img src="{% static 'media/pets-out.jpg' %}" class="card-img-top mt-2" width="300px" height="300px"
+                    alt="...">
+                <div class="card-body">
+                    <p class="card-text">Take pets out for a fresh breath tomorrow afternoon.</p>
+                    <!-- Posted BY: <a href="#">Chris Jhonson</a><br><br> -->
+                    Posted BY: Chris Jhonson<br><br>
+                    <a href="#" class="btn btn-primary mx-5">View details</a>
+                    <a href="/events/signUpSucceed" class="btn btn-primary mx-4">Sign
+                        Up</a>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col card mx-2 my-2" style="border-radius: 15px; width: 18rem;">
+                <img src="{% static 'media/rain-splash.jpg' %}" class="card-img-top  mt-2" width="300px" height="300px"
+                    alt="...">
+                <div class="card-body">
+                    <p class="card-text">Take your kids to enjoy the rain this Sunday.</p>
+                    <!-- Posted BY: <a href="#">Lucy White</a><br><br> -->
+                    Posted BY: Lucy White<br><br>
+                    <a href="#" class="btn btn-primary mx-5">View details</a>
+                    <a href="/events/signUpSucceed" class="btn btn-primary mx-4">Sign
+                        Up</a>
+                </div>
+            </div>
+
+            <div class="col card mx-2 my-2" style="border-radius: 15px; width: 18rem;">
+                <img src="{% static 'media/dog-beach.jpg' %}" class="card-img-top  mt-2" width="300px" height="300px"
+                    alt="...">
+                <div class="card-body">
+                    <p class="card-text">Dog friendly beach until sunset.</p>
+                    <!-- Posted BY: <a href="#">Brian Wood</a><br><br> -->
+                    Posted BY: Brian Wood<br><br>
+                    <a href="#" class="btn btn-primary mx-5">View details</a>
+                    <a href="/events/signUpSucceed" class="btn btn-primary mx-4">Sign
+                        Up</a>
+                </div>
+            </div>
+
+            <div class="col card mx-2 my-2" style="border-radius: 15px; width: 18rem;">
+                <img src="{% static 'media/carnival.jpg' %}" class="card-img-top  mt-2" width="300px" height="300px"
+                    alt="...">
+                <div class="card-body">
+                    <p class="card-text">Big Carnival for kids to have fun in next month.</p>
+                    <!-- Posted BY: <a href="#">Ruby Lee</a><br><br> -->
+                    Posted BY: Ruby Lee<br><br>
+                    <a href="#" class="btn btn-primary mx-5">View details</a>
+                    <a href="/events/signUpSucceed" class="btn btn-primary mx-4">Sign
+                        Up</a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h5><b>Public activities for everyone:</b></h5>
+        </div>
+        <div class="row">
+            <div class="col card mx-2 my-2" style="width: 18rem;">
+                <img src="{% static 'media/san-leandro-aquatic-play.jpeg' %}" width="300px" height="300px"
+                    class="card-img-top  mt-2" alt="...">
+                <div class="card-body">
+                    <p class="card-text"><a href="/events/publicEvent1">Splashing & Swimming at the San Leandro Family
+                            Aquatic Center</a></p>
+                    <a href="/events/publicEvent1" class="btn btn-primary">View details</a>
+                </div>
+            </div>
+
+            <div class="col card mx-2 my-2" style="width: 18rem;">
+                <img src="{% static 'media/outdoor-movies.jpeg' %}" class="card-img-top  mt-2" width="300px"
+                    height="300px" alt="...">
+                <div class="card-body">
+                    <p class="card-text">East Bay Outdoor Summer Movie Round-Up</p><br>
+                    <a href="#" class="btn btn-primary">View details</a>
+                </div>
+            </div>
+
+            <div class="col card mx-2 my-2" style="width: 18rem;">
+                <img src="{% static 'media/oakland-ice-kids-skate.jpeg' %}" class="card-img-top mt-2" width="300px"
+                    height="300px" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Indoor Ice Skating in Oakland at Oakland Ice</p><br>
+                    <a href="#" class="btn btn-primary">View details</a>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col card mx-2 my-2" style="width: 18rem;">
+                <img src="{% static 'media/cheers_oakland.jpeg' %}" class="card-img-top  mt-2" width="300px"
+                    height="300px" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Cheer On Oakland Roots Soccer Team</p><br>
+                    <a href="#" class="btn btn-primary">View details</a><br>
+                </div>
+            </div>
+
+            <div class="col card mx-2 my-2" style="width: 18rem;">
+                <img src="{% static 'media/u-pick-blueberries.jpeg' %}" class="card-img-top  mt-2" width="300px"
+                    height="300px" alt="...">
+                <div class="card-body">
+                    <p class="card-text">U-Pick Blueberries at Duckworth Family Farm in Sebastopol</p>
+                    <a href="#" class="btn btn-primary">View details</a>
+                </div>
+            </div>
+
+            <div class="col card mx-2 my-2" style="width: 18rem;">
+                <img src="{% static 'media/san-ramon.jpeg' %}" class="card-img-top  mt-2" width="300px" height="300px"
+                    alt="...">
+                <div class="card-body">
+                    <p class="card-text">San Ramon Olympic Pool & Aquatic Park</p><br>
+                    <a href="#" class="btn btn-primary">View details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer class="text-center text-white bg-light sticky-bottom">
+        <!-- Grid container -->
+        <div class="container pt-3">
+            <!-- Section: Social media -->
+            <section>
+                <!-- Facebook -->
+                {% load static %}
+                <a href="#" class="mx-2"><img src="{% static 'media/facebook.png' %}"></a>
+
+                <!-- Instagram -->
+                <a href="#" class="mx-2"><img src="{% static 'media/instagram.png' %}"></a>
+
+                <!-- Twitter -->
+                <a href="#" class="mx-2"><img src="{% static 'media/twitter.png' %}"></a>
+
+                <!-- Tiktok -->
+                <a href="#" class="mx-2"><img src="{% static 'media/tiktok.png' %}"></a>
+
+                <!-- Reddit -->
+                <a href="#" class="mx-2"><img src="{% static 'media/reddit.png' %}"></a>
+
+                <!-- Github -->
+                <a href="#" class="mx-2"><img src="{% static 'media/github.png' %}"></a>
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center bg-light p-3">
+            <span class="text-dark ">
+                <a href="/termsofuse">Terms of Use | </a><a href="/privacy">Privacy Notice | </a><a
+                    href="/helpPage">Contact
+                    Us</a><br>
+            </span>
+            <span class="text-dark">Copyright © 2022 TheBabySitters. All rights reserved.</span>
+        </div>
+        <!-- Copyright -->
+    </footer>
+</body>
+
+</html>

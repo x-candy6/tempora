@@ -1,0 +1,6 @@
+#+TITLE:EbaySDK Experimentation
+#+AUTHOR:AndrewC
+#+DESCRIPTION:python ebaysdk
+#+DATE:<2022-11-24 Thu>
+* 
+

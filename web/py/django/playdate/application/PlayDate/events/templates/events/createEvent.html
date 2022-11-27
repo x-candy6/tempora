@@ -1,0 +1,28 @@
+{% load static %} {% include "header.html" %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+        <meta charset="UTF-8" />
+        <title>create event</title>
+</head>
+
+<body>
+{% block content %} {% if user.is_authenticated %} {% load static %} {% include "registered_navbar.html" %}
+{%else %}{% load static %} {% include "general_navbar.html" %} {% endif %}
+<br />
+<br />
+<br />
+<form method="POST">
+        <h1>create event</h1>
+        {% csrf_token %} {{createEventForm}}
+        <button class="btn btn-primary pt-2" type="submit">Create Event</button>
+</form>
+{% endblock %}
+</body>
+</html>
+
+
+
+

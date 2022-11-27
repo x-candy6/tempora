@@ -1,0 +1,84 @@
+{% include "header.html" %}
+
+<body>
+    {% block content %}
+    {% if user.is_authenticated %}
+    {% load static %}
+    {% include "registered_navbar.html" %}
+    {% else %}
+    {% load static %}
+    {% include "general_navbar.html" %}
+    {% endif %}
+    {% endblock %}
+
+    <br>
+    <h1>Events Page Will be done later!</h1>
+    <!-- <h1>Search Page</h1>
+
+        <br/>
+        <form action="{% url 'events' %}" method="GET" value="{{request.GET.q}}"> 
+            <input type="text" name="q" value="{{request.GET.q}}" placeholder="city"/>
+            <input type="submit" name="submit" value="Search"/>
+        </form> -->
+    <div class="container"></div>
+    {% if submitbutton == 'Search' and request.GET.q != '' %}
+    {% if results %}
+
+
+
+
+    <div class="result-body">
+
+
+
+        <!-- <div class="form-group col-sm-8 col-md-6" action="{% url 'events' %}" method="GET" value="{{request.GET.category}}">
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="pets" name="category" value="pets">
+                        <label class="checkbox-inline"> Pets </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="kids" name="category" value="kids">
+                        <label class="checkbox-inline"> Kids </label>
+                    </div>
+                    <button class="btn btn-outline-success" type="submit" name="submit" value="submit">Filter</button>
+                </div> -->
+
+        <div class="table-responsive">
+            <table class="table widget-26">
+                <tbody>
+                    {% for result in results %}
+                    <tr>
+                        <td>
+                            <div class="event_name">
+                                {{result.name}}
+                                <p class="m-0"><a href={{result.event_url}} target="_blank" class="url">Register
+                                        here</a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="widget">
+
+                                <p class="text-muted m-0"> <span class="location"> {{result.address.street}},
+                                        {{result.address.city}}, {{result.address.state}}, {{result.address.country}} -
+                                        {{result.address.zipcode}}</span></p>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    {% else %}
+    No events found
+    {% endif %}
+    {% endif %}
+    </div>
+
+
+
+    {% include "footer.html" %}
+</body>

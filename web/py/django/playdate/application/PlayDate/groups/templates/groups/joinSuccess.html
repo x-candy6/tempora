@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Successfully Joined!</title>
+    </head>
+    <body>
+        <h1>Membership Success!</h1>
+        <h3>You are now a member of {{group.group_name}}</h3>
+        <p></p>
+        <p>GroupID: {{group.group_id}}</p>
+        <p>Group Name: {{group.group_name}}</p>
+        <p>Creation Date:{{group.create_date}}</p>
+        <p>Group Description:{{group.group_desc}}</p>
+        <!-- <script>
+            setTimeout(function () {
+                $.get("{% url 'groups:joinSuccess' group.group_id%}"); // Do something after 5 seconds
+            }, 5000);
+        </script> -->
+    </body>
+</html>

@@ -1,0 +1,14 @@
+#+TITLE:Template for Doc Template
+#+AUTHOR:AndrewC
+#+DESCRIPTION:templates for documentation
+#+DATE:<2022-11-27 Sun>
+Documentation Types
+
+* Templates for Documentation
+  
+** business_000
+For bigger projects that may involve an entity
+
+** tds_000
+Imports a template-doc-scratch file for fast todos
+   

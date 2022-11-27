@@ -1,0 +1,192 @@
+{% include "header.html" %}
+
+<body>
+
+    {% block content %}
+    {% if user.is_authenticated %}
+    {% load static %}
+    {% include "registered_navbar.html" %}
+    {% else %}
+    {% load static %}
+    {% include "general_navbar.html" %}
+    {% endif %}
+    {% endblock %}
+    <br><br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <h2>My Event Schedule: </h2>
+            </div>
+            <div class="col-lg-3">
+                <a href="/events/createEvent" class="btn btn-primary">Post New Event</a>
+            </div>
+        </div><br>
+
+        <!-- row end-->
+        <div class="row">
+            <div class="col-lg-9 mx-auto">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="text-center" scope="col">Date </th>
+                            <th scope="col">Event</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Location</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="inner-box">
+                            <th scope="row">
+                                <div class="event-date">
+                                    <p>16 November</p>
+                                </div>
+                            </th>
+                            <td>
+                                <div class="event-img">
+                                    <img src="{% static 'media/oakland-zoo.jpg' %}" width="200px" height="200px"
+                                        class="card-img-top  mt-2" alt="...">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="event-wrap">
+                                    <span>Let's go to Oakland Zoo this Saturday at 10 a.m.</span><br><br>
+                                    <div class="meta">
+                                        <div class="organizers">
+                                            <b>Posted By:</b> Tom Taylor<br><br>
+                                        </div>
+                                        <div class="time">
+                                            <span><b>Time:</b> 10:00 AM</span><br><br>
+                                        </div>
+                                        <div class="category">
+                                            <span><b>Category:</b> RSVP'd Events</span><br><br>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="location">
+                                    9777 Golf Links Rd, Oakland, CA 94605
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="inner-box">
+                            <th scope="row">
+                                <div class="event-date">
+                                    <p>18 November</p>
+                                </div>
+                            </th>
+                            <td>
+                                <div class="event-img">
+                                    <img src="{% static 'media/ocean-view-park.jpg' %}" width="200px" height="200px"
+                                        class="card-img-top mt-2" alt="...">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="event-wrap">
+                                    <span><a href="/events/memberEvent1">Take Kids to Ocean View Park @ 5 p.m.
+                                            today.</a></span><br><br>
+                                    <div class="meta">
+                                        <div class="organizers">
+                                            <b>Posted By:</b> <a href="/about/HelenLee">Helen Lee</a><br><br>
+                                        </div>
+                                        <div class="time">
+                                            <span><b>Time:</b> 5:00 PM</span><br><br>
+                                        </div>
+                                        <div class="category">
+                                            <span><b>Category:</b> RSVP'd Events</span><br><br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="location">
+                                    900 Buchanan St, Albany, CA 94706
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="inner-box">
+                            <th scope="row">
+                                <div class="event-date">
+                                    <p>20 November</p>
+                                </div>
+                            </th>
+                            <td>
+                                <div class="event-img">
+                                    <img src="{% static 'media/pets-out.jpg' %}" width="200px" height="200px"
+                                        class="card-img-top mt-2" alt="...">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="event-wrap">
+                                    <span>Take pets out for a fresh breath tomorrow afternoon.</span><br><br>
+                                    <div class="meta">
+                                        <div class="organizers">
+                                            <b>Posted By:</b> Chris Jhonson<br>
+                                        </div>
+                                        <div class="time">
+                                            <span><b>Time:</b> 6:00 PM</span><br>
+                                        </div>
+                                        <div class="category">
+                                            <span><b>Category:</b> Created By You!</span><br><br>
+                                        </div>
+                                        <a href="#" class="btn btn-primary mx-auto">Edit Event</a>
+                                        <a href="#" class="btn btn-primary mx-auto">Cancel Event</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="location">
+                                    Berkeley Marina, Berkeley, CA
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <footer class="text-center text-white bg-light sticky-bottom">
+        <!-- Grid container -->
+        <div class="container pt-3">
+            <!-- Section: Social media -->
+            <section>
+                <!-- Facebook -->
+                {% load static %}
+                <a href="#" class="mx-2"><img src="{% static 'media/facebook.png' %}"></a>
+
+                <!-- Instagram -->
+                <a href="#" class="mx-2"><img src="{% static 'media/instagram.png' %}"></a>
+
+                <!-- Twitter -->
+                <a href="#" class="mx-2"><img src="{% static 'media/twitter.png' %}"></a>
+
+                <!-- Tiktok -->
+                <a href="#" class="mx-2"><img src="{% static 'media/tiktok.png' %}"></a>
+
+                <!-- Reddit -->
+                <a href="#" class="mx-2"><img src="{% static 'media/reddit.png' %}"></a>
+
+                <!-- Github -->
+                <a href="#" class="mx-2"><img src="{% static 'media/github.png' %}"></a>
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center bg-light p-3">
+            <span class="text-dark ">
+                <a href="/termsofuse">Terms of Use | </a><a href="/privacy">Privacy Notice | </a><a
+                    href="/helpPage">Contact
+                    Us</a><br>
+            </span>
+            <span class="text-dark">Copyright © 2022 TheBabySitters. All rights reserved.</span>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+</body>
+
+</html>

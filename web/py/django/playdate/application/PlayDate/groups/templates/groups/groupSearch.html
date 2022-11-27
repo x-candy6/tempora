@@ -1,0 +1,142 @@
+<!--
+░█▀▀░█▀▄░█▀█░█░█░█▀█░░░█▀▀░█▀▀░█▀█░█▀▄░█▀▀░█░█
+░█░█░█▀▄░█░█░█░█░█▀▀░░░▀▀█░█▀▀░█▀█░█▀▄░█░░░█▀█
+░▀▀▀░▀░▀░▀▀▀░▀▀▀░▀░░░░░▀▀▀░▀▀▀░▀░▀░▀░▀░▀▀▀░▀░▀
+Contributor(s): AndrewC, 
+Version: 1.4.3
+Description: Searching for groups. This page may be integrated into the search bar depending on the applications needs.
+-->
+
+{% include "header.html" %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Group Search</title>
+    </head>
+    <body>
+        {% if user.is_authenticated %} {% load static %} {% include "registered_navbar.html" %} {%else%} {%load static%}
+        {% include "general_navbar.html" %} {% endif %} {% if user.is_authenticated %}
+
+        <!--FIXTHIS: This needs to be centered-->
+        <div
+            class="card searchBar"
+            style="width: 50vw; position: absolute; padding: 1%; top: 15vh; left: 25%; border: solid blue 3px"
+        >
+            <h1>Search!</h1>
+            <form method="GET">
+                {% csrf_token %}
+                <input type="text" name="search" placeholder="Search.." />
+                <button class="btn btn-primary me-4" type="submit">Search</button>
+                <a href="/groups/createGroup" class="btn btn-primary me-1" style="width: 10rem">Create a Group!</a>
+            </form>
+        </div>
+
+        {% if groups %}
+        <div class="card" style="border: solid blue 1px; width: 50vw; position: absolute; top: 30%; left: 25%">
+            {% for group in groups %}
+            <div class="card" style="border: solid blue 1px">
+                <table>
+                    <td>
+                        {% if group.banner.url != None %}
+                        <div class="col-sm-5">
+                            <img src="{{group.banner.url}}" style="width: 20vw; height: 20vh" alt="" />
+                        </div>
+                        {% else %}
+                        <div class="col-sm-5">
+                            <img
+                                src="/media/publicevents_banner/default.jpeg"
+                                style="width: 20vw; height: 20vh"
+                                alt=""
+                            />
+                        </div>
+
+                        {% endif %}
+                    </td>
+                    <td style="">
+                        <div
+                            class="col-sm-7"
+                            style="align-content: left; width: 28vw; height: 20vh; text-align: left; margin: 0 auto"
+                        >
+                            <a href="{% url 'groupView' group_id=group.group_id %}" style="text-align: left"
+                                ><strong>{{group.group_name}}</strong></a
+                            >
+                            <p>{{group.group_desc}}</p>
+                        </div>
+                    </td>
+                </table>
+            </div>
+            {% endfor %}
+        </div>
+        <br />
+        <br />
+        {% endif %}
+        <!--
+        <div class="results" style="position: absolute; top: 30%; left: 40%">
+            {% for group in groups %}
+            <ul>
+                <li>
+                    <a href="{% url 'groupView' group_id=group.group_id %}">{{group.group_name}}</a>
+                </li>
+            </ul>
+
+            {% endfor %}
+        </div>
+        -->
+        {% else %}
+        <div
+            class="notLoggedIn"
+            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 5px dotted blue"
+        >
+            <h1>You need to be logged in to search!</h1>
+            <h4 style="text-align: center">
+                <a href="/register/">🐱Register here!</a>•Already registered?•<a href="/login/">Login Here!🐱</a>
+            </h4>
+        </div>
+
+        {% endif %}
+        <!--FIXTHIS: Footer is displayed on top of page, removed for now-->
+        <!--{#% include "footer.html" %#}-->
+    </body>
+</html>
+<style>
+    body {
+        background-color: #7ecae6;
+    }
+    .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 0 solid rgba(0, 0, 0, 0.125);
+        border-radius: 0.25rem;
+    }
+    .main-body {
+        margin-top: 100px;
+        padding: 15px;
+    }
+
+    .card-body {
+        flex: 1 1 auto;
+        min-height: 1px;
+        padding: 1rem;
+    }
+</style>
+
+<!--
+░█▀█░█▀▄░█▀▀░█░█░▀█▀░█░█░█▀▀
+░█▀█░█▀▄░█░░░█▀█░░█░░▀▄▀░█▀▀
+░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░░▀░░▀▀▀
+
+        <div class="col card mx-2 my-2" style="width: 18rem;">
+            <img src="{% static 'media/groupstock-unsplash.jpg' %}" class="card-img-top  mt-2" width="300px"
+                height="300px" alt="...">
+            <div class="card-body">
+                <p class="card-text">Bikers and Dogs Group</p><br>
+                <a href="#" class="btn btn-primary">View details</a><br>
+            </div>
+        </div>
+-->

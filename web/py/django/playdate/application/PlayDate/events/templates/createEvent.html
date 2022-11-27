@@ -1,0 +1,92 @@
+{% load static %}
+{% include "header.html" %}
+
+<body style="background-color: #9de2ff;">
+        {% if user.is_authenticated %}
+        {% load static %}
+        {% include "registered_navbar.html" %}
+        {% else %}
+        {% load static %}
+        {% include "general_navbar.html" %}
+        {% endif %}
+
+
+        <br />
+        <br />
+        <br />
+        <h4 class="logo navbar-brand text-center">
+                <b>Post New Event:</b>
+        </h4>
+
+        <div class="card mx-auto my-3" style="width: 30rem;">
+                <div class="card-body">
+                        <div class="register" style="width: 450px;">
+                                <form method="POST">
+                                        {% csrf_token %}
+                                        <label for="eventname"><b>{{eventform.name.label}}</b><br>
+                                                {{eventform.name}}</label><br>
+
+                                        <label for="date"> <b>{{eventform.category.label}}</b> <br>
+                                                {{eventform.category}}</label><br>
+
+                                        <!-- <input type="text" name="eventname" id="eventname" autofocus /><br> -->
+                                        <label for="description"><b>{{eventform.desc.label}}</b><br>
+                                                {{eventform.desc}}</label><br>
+
+                                        <!-- <textarea name="description" id="description" ></textarea><br> -->
+                                        <label for="date"> <b>{{eventform.datetime.label}} </b> <br>
+                                                {{eventform.datetime}}</label><br>
+
+
+                                        <label
+                                                for="Address"><b>{{addressform.street.label}}</b><br>{{addressform.street}}</label><br>
+                                        <label
+                                                for="Address"><b>{{addressform.city.label}}</b><br>{{addressform.city}}</label><br>
+                                        <label
+                                                for="Address"><b>{{addressform.state.label}}</b><br>{{addressform.state}}</label><br>
+                                        <label
+                                                for="Address"><b>{{addressform.country.label}}</b><br>{{addressform.country}}</label><br>
+                                        <label
+                                                for="Address"><b>{{addressform.zipcode.label}}</b><br>{{addressform.zipcode}}</label><br>
+                                        <!-- <label for="User"><b>User</b><br>{{eventform.user}}</label><br> -->
+                                        <!-- <input type="text" name="address" id="address" /><br>
+                                        <label for="City"> <b>City</b></label><br>
+                                        <input type="text" name="city" id="city" /><br>
+                                        <label for="State"> <b>State</b> </label><br>
+                                        <input type="text" name="State" id="State" /><br>
+                                        <label for="zipcode"> <b>Zipcode</b></label><br>
+                                        <input type="text" name="Zipcode" id="Zipcode" /><br><br> -->
+                                        <label for="name">
+                                                <b>{{eventform.banner.label}}</b>
+                                                <br>{{eventform.banner}}
+                                                <!-- <input type="file" id="file-input" accept="image/*" /><br> -->
+                                        </label><br>
+                                        <br>
+                                        <!-- <a class="col" href="/createdEvent"> -->
+                                        <button class="btn btn-primary pt-2" type="submit">
+                                                Post Event
+                                        </button>
+                                        <!-- </a> -->
+
+
+                                </form>
+
+
+                        </div>
+                </div>
+        </div>
+
+        <footer class="gsfooter mt-auto bg-light py-1 d-none d-md-flex sticky-bottom">
+                <div class="container-fluid text-center text-md-left">
+                        <span class="text-dark ">
+                                <a href="/termsofuse">Terms of Use | </a><a href="/privacy">Privacy Notice | </a><a
+                                        href="/helpPage">Contact
+                                        Us</a><br>
+                        </span>
+                        <span class="text-dark">Copyright © 2022 TheBabySitters. All rights reserved.</span>
+                </div>
+
+        </footer>
+</body>
+
+</html>

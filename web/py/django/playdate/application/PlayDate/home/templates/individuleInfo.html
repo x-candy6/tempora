@@ -1,0 +1,23 @@
+{% load static %}
+{% include "header.html" %}
+
+<body>
+    {% block content %}
+    {% if user.is_authenticated %}
+    {% load static %}
+    {% include "registered_navbar.html" %}
+    {% else %}
+    {% load static %}
+    {% include "general_navbar.html" %}
+    {% endif %}
+    {% endblock %}
+    <br><br><br>
+    <main role="main mt-5">
+
+        <h2>The Individule Info Part will be done later!</h2>
+    </main>
+
+    {% include "footer.html" %}
+</body>
+
+</html>

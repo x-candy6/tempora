@@ -1,0 +1,92 @@
+{% include "header.html" %}
+<!-- My groups for registered users -->
+
+<body>
+    {% block content %}
+    {% if user.is_authenticated %}
+    {% load static %}
+    {% include "registered_navbar.html" %}
+    {% else %}
+    {% load static %}
+    {% include "general_navbar.html" %}
+    {% endif %}
+    {% endblock %}
+
+    <div class="main-body">
+
+        <div class="card">
+        
+        <div class="row mb-4 mb-3" >
+            <div class="col card mx-2 my-2" style="width: 18rem;">
+                <img src="{% static 'media/groupstock-unsplash.jpg' %}" class="card-img-top  mt-2" width="300px"
+                    height="300px" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Bikers and Dogs Group</p><br>
+                    <a href="#" class="btn btn-primary">View details</a><br>
+                </div>
+            </div>
+
+            <div class="col card mx-2 my-2" style="width: 18rem;">
+                <img src="{% static 'media/groupstock-unsplash.jpg' %}" class="card-img-top  mt-2" width="300px"
+                    height="300px" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Local families meet and greet Grooup</p>
+                    <a href="#" class="btn btn-primary">View details</a>
+                </div>
+            </div>
+
+            <div class="col card mx-2 my-2" style="width: 18rem;">
+                <img src="{% static 'media/groupstock-unsplash.jpg' %}" class="card-img-top  mt-2" width="300px"
+                    height="300px" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Bikers with Kids Group</p><br>
+                    <a href="#" class="btn btn-primary">View details</a>
+                </div>
+            </div>
+            <div class="col card mx-2 my-2" style="width: 18rem;">
+                <img src="{% static 'media/groupstock-unsplash.jpg' %}" class="card-img-top  mt-2" width="300px"
+                    height="300px" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Bikers with Kids Group</p><br>
+                    <a href="#" class="btn btn-primary">View details</a>
+                </div>
+            </div>
+        </div>
+        <div class="col card mx-2 my-2" style="width: 18rem;">
+            <img src="{% static 'media/groupstock-unsplash.jpg' %}" class="card-img-top  mt-2" width="300px"
+                height="300px" alt="...">
+            <div class="card-body">
+                <p class="card-text">Join others through groups</p><br>
+                <a href="#" class="btn btn-primary">Add Group</a>
+            </div>
+        </div>
+    </div>
+</body>
+{% include "footer.html" %}
+
+<style>
+    body {
+        background-color: #7ecae6;
+    }
+    .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+.main-body {
+    margin-top: 100px;
+    padding: 15px;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+}
+</style>

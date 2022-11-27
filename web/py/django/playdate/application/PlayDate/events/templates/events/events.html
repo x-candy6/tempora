@@ -1,0 +1,199 @@
+{% include "header.html" %}
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+<body>
+    {% block content %} {% if user.is_authenticated %} {% load static %} {% include "registered_navbar.html" %} {%else%}
+    {% load static %} {% include "general_navbar.html" %} {% endif %} {% endblock %}
+
+    <br />
+    <!-- <h1>Search Page</h1>
+
+        <br/>
+        <form action="{% url 'events' %}" method="GET" value="{{request.GET.q}}"> 
+            <input type="text" name="q" value="{{request.GET.q}}" placeholder="city"/>
+            <input type="submit" name="submit" value="Search"/>
+        </form> -->
+<!-- Empty Search sends you home -->
+    {% if submitbutton == 'Search' and request.GET.q == '' %}
+    <div>Hello There nothing in here</div>
+    <meta http-equiv="Refresh" content="0; url='/" />
+    {% endif %}
+
+    {% if submitbutton == 'Search' and request.GET.q != '' %}
+
+    {% if results %}
+
+    <!-- <div class="form-group col-sm-8 col-md-6" action="{% url 'events' %}" method="GET" value="{{request.GET.category}}">
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="pets" name="category" value="pets">
+                        <label class="checkbox-inline"> Pets </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="kids" name="category" value="kids">
+                        <label class="checkbox-inline"> Kids </label>
+                    </div>
+                    <button class="btn btn-outline-success" type="submit" name="submit" value="submit">Filter</button>
+                </div> -->
+
+    <!-- result found -->
+
+    <div class="grid-container">
+
+        <table class="table widget-26">
+            <tbody>
+                {% for result in results %}
+
+
+                <div class="gal-detail thumb">
+                    {% if result.banner.url != None %}
+                    <div class="event_banner">
+                        <img src="{{result.banner.url}}" alt="" width="150px" height="150px" />
+                    </div>
+                    {% else %}
+                    <div class="event_banner">
+                        <img src="/media/publicevents_banner/default.jpeg" style="width: 5vw; height: 3vh" alt="" />
+                    </div>
+                    {% endif %}
+                    <div class="event_name">
+                        <a href="/events/publicEvent1" target="_blank" class="url">{{result.name}}</a>
+                        <p class="m-0"></p>
+                    </div>
+                    <span class="location">
+                        {{result.address.street}}, {{result.address.city}},
+                        {{result.address.state}},
+                        {{result.address.country}} - {{result.address.zipcode}}</span>
+                    </p>
+                </div>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+    {% else %}
+    <!-- Crazy input not found -->
+  
+    <div class="grid-container">
+
+                <div class="gal-detail thumb" style="font-size: 130%;">
+                   <Header>No results found please try again</Header>
+                </div>
+
+    </div>
+
+    {% endif %}
+    {% endif %}
+    {% include "footer.html" %}
+</body>
+<style>
+    body {
+        margin-top: 20px;
+        background: #eee;
+    }
+
+    .portfolioFilter a {
+        -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+        -moz-transition: all 0.3s ease-out;
+        -ms-transition: all 0.3s ease-out;
+        -o-transition: all 0.3s ease-out;
+        -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+        -webkit-transition: all 0.3s ease-out;
+        box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+        color: #333333;
+        padding: 5px 10px;
+        display: inline-block;
+        transition: all 0.3s ease-out;
+    }
+
+    .portfolioFilter a:hover {
+        background-color: #228bdf;
+        color: #ffffff;
+    }
+
+    .portfolioFilter a.current {
+        background-color: #228bdf;
+        color: #ffffff;
+    }
+
+    .thumb {
+        background-color: #ffffff;
+        border-radius: 3px;
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+        margin-top: 30px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        width: 100%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+    }
+
+    .thumb-img {
+        border-radius: 2px;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .gal-detail h4 {
+        margin: 16px auto 10px auto;
+        width: 80%;
+        white-space: nowrap;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .gal-detail .ga-border {
+        height: 3px;
+        width: 40px;
+        background-color: #228bdf;
+        margin: 10px auto;
+    }
+
+    @media(min-width:35em) {
+        .grid-container {
+            width: 95%;
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1em;
+            grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+
+        }
+    }
+</style>
+<!-- Andy's code  -->
+<!-- <tr>
+                                <td>
+                                    {% if result.banner.url != None %}
+                                    <div class="event_banner">
+                                        <img src="{{result.banner.url}}" style="width: 5vw; height: 3vh" alt="" />
+                                    </div>
+                                    {% else %}
+                                    <div class="event_banner">
+                                        <img src="/media/publicevents_banner/default.jpeg"
+                                            style="width: 5vw; height: 3vh" alt="" />
+                                    </div>
+                                    {% endif %}
+                                </td>
+
+                                <td>
+                                    <div class="event_name">
+                                        <a href="/events/publicEvent1" target="_blank" class="url">{{result.name}}</a>
+                                        <p class="m-0"></p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="widget">
+                                        <p class="text-muted m-0">
+                                            <span class="location">
+                                                {{result.address.street}}, {{result.address.city}},
+                                                {{result.address.state}},
+                                                {{result.address.country}} - {{result.address.zipcode}}</span>
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr> -->

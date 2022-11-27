@@ -1,0 +1,27 @@
+name: ebay_api_config
+
+# Trading API Sandbox - https://www.x.com/developers/ebay/products/trading-api
+api.sandbox.ebay.com:
+    compatibility: 719
+    appid: AndrewC-pokemonw-SBX-21c6fefd9-d9f18c5f
+    certid: SBX-1c6fefd9e601-2e95-4bb7-bfb2-8773
+    devid: 70b73b90-5798-4d89-b0fa-d5136ff8b0e5
+    token: v^1.1#i^1#I^3#f^0#p^3#r^1#t^Ul4xMF8yOjdEODc1NzREQjgzMzk0NzZGNEVEMDY4RjY1RTNCRjFCXzJfMSNFXjEyODQ=
+
+# Trading API - https://www.x.com/developers/ebay/products/trading-api
+api.ebay.com:
+    compatibility: 719
+    appid: AndrewC-pokemonw-PRD-a1c66d072-1e0cc2f5
+    certid: PRD-1c66d07233aa-5b0b-42c1-b602-41e9
+    devid: 70b73b90-5798-4d89-b0fa-d5136ff8b0e5
+    token: v^1.1#i^1#p^3#r^1#f^0#I^3#t^Ul4xMF8xMTo4NzM4MTVDODZGNDgzQzQ4RDI4NjMzRjQ0QkY1NzY3N18yXzEjRV4yNjA=
+
+# Finding API - https://www.x.com/developers/ebay/products/finding-api
+svcs.ebay.com:
+    appid: AndrewC-pokemonw-PRD-a1c66d072-1e0cc2f5
+    version: 1.0.0
+
+# Shopping API - https://www.x.com/developers/ebay/products/shopping-api
+open.api.ebay.com:
+    appid: AndrewC-pokemonw-PRD-a1c66d072-1e0cc2f5
+    version: 671

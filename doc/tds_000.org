@@ -1,0 +1,28 @@
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+TITLE: Scratch Project Starter Template
+#+AUTHOR:AndrewC
+#+DESCRIPTION:Quick template for new ideas
+#+DATE:
+
+* Start 
+** Introduction
+** Description
+  
+* Main Kanban
+  |------+-------+------|
+  | TODO | DOING | DONE |
+  |------+-------+------|
+  |      |       |      |
+  |      |       |      |
+  |      |       |      |
+  |------+-------+------|
+  
+* Changelog
+  |---------+-------------|
+  | VERSION | DESCRIPTION |
+  |---------+-------------|
+  |   0.0.0 | Initiation  |
+  |         |             |
+  |         |             |
+  |---------+-------------|
+  

@@ -1,0 +1,174 @@
+{% load static %}{% include "header.html" %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Group View Testing</title>
+    </head>
+    <body>
+        <!--🐱Navbar Content🐱-->
+        {% block content %} {% if user.is_authenticated %} {% load static %} {% include "registered_navbar.html" %}
+        {%else%} {% load static %} {% include "general_navbar.html" %} {% endif %} {% endblock %}
+
+        <!--🐱Banner Image🐱-->
+        <h2>Three Equal Columns</h2>
+        {% if group.banner.url != None %}
+        <div class="col-sm-5">
+            <img src="{{group.banner.url}}" style="width: 100vw; height: 20vh" alt="" />
+        </div>
+        {% else %}
+        <div class="col-sm-5">
+            <img src="/media/publicevents_banner/default.jpeg" style="width: 100vw; height: 20vh" alt="" />
+        </div>
+        {% endif %}
+
+        <!--🐱Page Layout🐱-->
+        <div class="row">
+            <!--🐱Left Column🐱-->
+            <div class="column left" style="background-color: #aaa">
+                <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+                    <div class="position-sticky">
+                        <div class="list-group list-group-flush mx-3 mt-4">
+                            <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+                                <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action py-2 ripple active">
+                                <i class="fas fa-chart-area fa-fw me-3"></i><span>Events</span>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+                                ><i class="fas fa-lock fa-fw me-3"></i><span>Posts</span></a
+                            >
+                            <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+                                ><i class="fas fa-chart-line fa-fw me-3"></i><span>Options</span></a
+                            >
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <!--🐱Middle Column🐱-->
+            <div class="column middle" style="background-color: #bbb">
+                <h2>Main Group View</h2>
+                <!--Add posts/events etc-->
+                <!--Group Information-->
+                {{group}}
+                <p>GroupID: {{group.group_id}}</p>
+                <p>Group Name: {{group.group_name}}</p>
+                <p>Creation Date:{{group.create_date}}</p>
+                <p>Group Description:{{group.group_desc}}</p>
+                <p>
+                    Keywords: {% if group.tags.all %} {% for tag in group.tags.all %} {{tag}}, {% endfor %}{% else %}No
+                    Keywords {%endif %}
+                </p>
+                <p>Group size: {{member_list|length}} people</p>
+                <br />
+                {% if isMember == True %}
+
+                <form method="POST">
+                    {% csrf_token %}
+                    <button name="leaveGroup" class="btn btn-primary pt-2" type="submit">Leave Group</button>
+                </form>
+
+                {% elif isMember == False %}
+
+                <form method="POST">
+                    {% csrf_token %}
+                    <button name="joinGroup" class="btn btn-primary pt-2" type="submit">Join Group</button>
+                </form>
+
+                {% endif %}
+            </div>
+            <!--🐱Right Column🐱-->
+            <div class="column right" style="background-color: #ccc">
+                <h2>Members</h2>
+                <!--Member table-->
+                {% if member_list %}
+                <ul>
+                    <table>
+                        <tr>
+                            <th>user ID</th>
+                            <th>username</th>
+                        </tr>
+                        {% for member in member_list %}
+                        <tr>
+                            <td>{{member.member_id.id}}</td>
+                            <td>
+                                <a href="{% url 'profileView' profile_id=member.member_id.id %}"
+                                    >{{member.member_id}}</a
+                                >
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </ul>
+                {% else %}
+                <p>No members error; there should at least be 1 member</p>
+                {% endif %}
+            </div>
+        </div>
+
+        {% include "footer.html" %}
+    </body>
+</html>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    /*Need to tinker with these settings... 
+      Ideally the right bar should adjust according to vw and vh.
+      it should not cut off the banner photo.
+     */
+    .column {
+        float: left;
+        padding: 0px;
+        height: 100vh; /* Should be removed. Only for demonstration */
+    }
+    .left {
+        width: 10%;
+    }
+    .right {
+        width: 14.5%;
+    }
+
+    .middle {
+        margin-left: 0.5%;
+        width: 75%;
+    }
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    /* Sidebar */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        padding: 58px 0 0; /* Height of navbar */
+        box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+        width: 10%;
+        z-index: 600;
+    }
+
+    @media (max-width: 991.98px) {
+        .sidebar {
+            width: 100%;
+        }
+    }
+    .sidebar .active {
+        border-radius: 5px;
+        box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    }
+
+    .sidebar-sticky {
+        position: relative;
+        top: 0;
+        height: calc(100vh - 48px);
+        padding-top: 0.5rem;
+        overflow-x: hidden;
+        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    }
+</style>

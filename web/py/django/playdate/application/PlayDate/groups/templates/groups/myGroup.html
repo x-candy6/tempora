@@ -1,0 +1,166 @@
+{% include "header.html" %}
+
+<body>
+
+    {% block content %}
+    {% if user.is_authenticated %}
+    {% load static %}
+    {% include "registered_navbar.html" %}
+    {% else %}
+    {% load static %}
+    {% include "general_navbar.html" %}
+    {% endif %}
+    {% endblock %}
+    <br><br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <h2>My Groups: </h2>
+            </div>
+            <div class="col-lg-3">
+                <a href="/groups/createGroup" class="btn btn-primary">Create Your Group</a>
+            </div>
+        </div><br>
+        <!-- row end-->
+        <div class="row">
+            <div class="col-lg-9 mx-auto">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="text-center" scope="col">Group </th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Location</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="inner-box">
+                            <td>
+                                <div class="event-img">
+                                    <img src="{% static 'media/Uc_Village_Parents.jpg' %}" width="200px" height="200px"
+                                        class="card-img-top  mt-2" alt="...">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="event-wrap">
+                                    <span>Group of parents living in UC Village.</span><br><br>
+                                    <div class="meta">
+                                        <div class="organizers">
+                                            <b>Group Admin:</b> Tom Taylor<br><br>
+                                        </div>
+                                        <div class="category">
+                                            <span><b>Category:</b> RSVP'd Events</span><br><br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="location">
+                                    UC Village, Berkeley, CA 94706
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="inner-box">
+                            <td>
+                                <div class="event-img">
+                                    <img src="{% static 'media/hikers.jpg' %}" width="200px" height="200px"
+                                        class="card-img-top mt-2" alt="...">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="event-wrap">
+                                    <span><a href="/createdGroup">Hikers with children living in
+                                            Albany.</a></span><br><br>
+                                    <div class="meta">
+                                        <div class="organizers">
+                                            <b>Group Admin:</b> <a href="/about/HelenLee">Helen Lee</a><br><br>
+                                        </div>
+                                    </div>
+                                    <div class="category">
+                                        <span><b>Category:</b> RSVP'd Events</span><br><br>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="location">
+                                    Albany, CA
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="inner-box">
+                            <td>
+                                <div class="event-img">
+                                    <img src="{% static 'media/kinders.jpg' %}" width="200px" height="200px"
+                                        class="card-img-top mt-2" alt="...">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="event-wrap">
+                                    <span>Parents of Kindergardeners living in San Francisco Bay Area.</span><br><br>
+                                    <div class="meta">
+                                        <div class="organizers">
+                                            <b>Group Admin:</b> <a href="/about/HelenLee">Chris Jhonson</a><br><br>
+                                        </div>
+                                    </div>
+                                    <div class="category">
+                                        <span><b>Category:</b> Created By You!</span><br><br>
+                                    </div>
+                                    <a href="#" class="btn btn-primary mx-auto">Edit Event</a>
+                                    <a href="#" class="btn btn-primary mx-auto">Cancel Event</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="location">
+                                    San Francisco, CA
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <!-- /col end-->
+    </div>
+    <footer class="text-center text-white bg-light sticky-bottom">
+        <!-- Grid container -->
+        <div class="container pt-3">
+            <!-- Section: Social media -->
+            <section>
+                <!-- Facebook -->
+                {% load static %}
+                <a href="#" class="mx-2"><img src="{% static 'media/facebook.png' %}"></a>
+
+                <!-- Instagram -->
+                <a href="#" class="mx-2"><img src="{% static 'media/instagram.png' %}"></a>
+
+                <!-- Twitter -->
+                <a href="#" class="mx-2"><img src="{% static 'media/twitter.png' %}"></a>
+
+                <!-- Tiktok -->
+                <a href="#" class="mx-2"><img src="{% static 'media/tiktok.png' %}"></a>
+
+                <!-- Reddit -->
+                <a href="#" class="mx-2"><img src="{% static 'media/reddit.png' %}"></a>
+
+                <!-- Github -->
+                <a href="#" class="mx-2"><img src="{% static 'media/github.png' %}"></a>
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center bg-light p-3">
+            <span class="text-dark ">
+                <a href="/termsofuse">Terms of Use | </a><a href="/privacy">Privacy Notice | </a><a
+                    href="/helpPage">Contact
+                    Us</a><br>
+            </span>
+            <span class="text-dark">Copyright © 2022 TheBabySitters. All rights reserved.</span>
+        </div>
+        <!-- Copyright -->
+    </footer>
+</body>
+
+
+</html>

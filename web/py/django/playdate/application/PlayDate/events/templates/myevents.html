@@ -1,0 +1,60 @@
+{% include "header.html" %}
+
+<body>
+    
+    {% block content %}
+    {% if user.is_authenticated %}
+    {% load static %}
+    {% include "registered_navbar.html" %}
+    {% else %}
+    {% load static %}
+    {% include "general_navbar.html" %}
+    {% endif %}
+    {% endblock %}
+
+        <br><br><br><br>
+        <div class="container">
+            <div class="result-body">  
+                <h2>My Events </h2>     
+                <div class="table-responsive">
+
+                    <form action="{% url 'createUserEvent' %}" method="POST"> 
+                        
+                        <input type="submit" name="submit" value="createUserEvent"/>
+                    </form>
+
+                    <!-- <table class="table widget-26">
+                        <tbody>
+                            {% for result in publicevent %}
+                            
+                                <tr>
+                                    <td>
+                                        <div class="widget-26-job-title">
+                                            {{result.name}}
+                                            <p class="m-0"><a href={{result.url}}  class="employer-name">Register here</a>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="widget-26-job-info">
+                    
+                                            <p class="text-muted m-0"> <span class="location"> {{result.address.street}}, {{result.address.city}}, {{result.address.state}}, {{result.address.country}}</span></p>
+                                        </div>
+                                    </td>
+                                
+                                    
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table> -->
+                </div>
+            </div>
+
+        </div>
+        
+                    
+
+    
+
+
+        {% include "footer.html" %}
+    </body>

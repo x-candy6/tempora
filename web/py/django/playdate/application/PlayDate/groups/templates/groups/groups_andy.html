@@ -1,0 +1,73 @@
+{% include "header.html" %}
+
+<body>
+    {% block content %} {% if user.is_authenticated %} {% load static %} {% include "registered_navbar.html" %} {%else%}
+    {% load static %} {% include "general_navbar.html" %} {% endif %} {% endblock %}
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <!--Group Information-->
+    {{group}}
+    <p>GroupID: {{group.group_id}}</p>
+    <p>Group Name: {{group.group_name}}</p>
+    <p>Creation Date:{{group.create_date}}</p>
+    <p>Group Description:{{group.group_desc}}</p>
+    <p>
+        Keywords: {% if group.tags.all %} {% for tag in group.tags.all %} {{tag}}, {% endfor %}{% else %}No Keywords
+        {%endif %}
+    </p>
+    <p>Group size: {{member_list|length}} people</p>
+    <br />
+
+    <!--Member table-->
+    {% if member_list %}
+    <ul>
+        <table>
+            <tr>
+                <th>group id</th>
+                <th>user ID</th>
+                <th>username</th>
+            </tr>
+            {% for member in member_list %}
+            <tr>
+                <td>{{member.group_id}}</td>
+                <td>{{member.member_id.id}}</td>
+                <td><a href="{% url 'profileView' profile_id=member.member_id.id %}">{{member.member_id}}</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <!--<p>table id:{{member.id}}</p>
+        <p>join date:{{member.join_date}}</p> -->
+    </ul>
+    {% else %}
+    <p>No members error; there should at least be 1 member</p>
+    {% endif %}
+
+    <br />
+
+    {% if isMember == True %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <button name="leaveGroup" class="btn btn-primary pt-2" type="submit">Leave Group</button>
+    </form>
+
+    {% elif isMember == False %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <button name="joinGroup" class="btn btn-primary pt-2" type="submit">Join Group</button>
+    </form>
+
+    {% endif %}
+    <div class="row my-2 justify-content-center">
+        <a href="/groups/createGroup" class="btn btn-primary me-4" style="width: 15rem">Create Your Group</a>
+    </div>
+    <br />
+
+    {% include "footer.html" %}
+</body>

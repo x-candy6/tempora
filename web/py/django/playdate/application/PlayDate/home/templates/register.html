@@ -1,0 +1,81 @@
+{% load static %}
+{% include "header.html" %}
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Register for PlayDate!</title>
+
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    </link>
+    <script src="{% static 'js/register.js' %}" defer="true"></script>
+</head>
+
+<body style="background-color: #9de2ff;">
+    <div>
+        <a href="/">
+            <h5 style="font-family: 'Gill Sans', sans-serif;color: #0d6efd; text-align: center; margin-top: 30px;">
+                <b>PlayDate</b>
+            </h5>
+        </a>
+    </div>
+    <div class="card mx-auto mt-2" style="width: 30rem;">
+        <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted">Sign-Up:</h6>
+            <form class="register" style="width: 450px;" method="POST" action="">
+                {% csrf_token %}
+                <label for="username">
+                    <b>{{user_form.username.label}}</b><br>
+                    {{user_form.username}}
+                    {{ error.username }}<br>
+                </label><br>
+                <label for="name">
+                    <b>{{user_form.first_name.label}}</b><br>
+                    {{user_form.first_name}}<br>
+                    <b>{{user_form.last_name.label}}</b><br>
+                    {{user_form.last_name}}<br>
+                </label><br>
+                <label for="email">
+                    <b>{{user_form.email.label}}</b><br>
+                    {{user_form.email}}
+                    {{ error.email }}<br>
+                </label><br>
+                <label for="password1">
+                    <b>{{user_form.password1.label}}</b><br>
+                    {{user_form.password1}}
+                    {{ error.password }}<br>
+                </label><br>
+                <label for="password2">
+                    <b>Re-enter Password</b><br>
+                    {{user_form.password2}}<br>
+                </label><br>
+                <label for="gender">
+                    <b>{{accountForm.gender.label}}</b><br>
+                    {{accountForm.gender}}<br>
+                </label><br>
+                <label for="dob">
+                    <b>{{accountForm.dob.label}}</b><br>
+                    {{accountForm.dob}}<br>
+                </label><br><br>
+
+                <div class="col">
+                    <button class="btn btn-primary pt-2" type="submit">
+                        Sign Up
+                    </button>
+                </div><br>
+                <div>
+                    <p>By continuing, you agree to PlayDate's <a href="/termsofuse">Terms of Use</a>
+                        and <a href="/privacy">Privacy Notice</a>.
+                    </p>
+                </div><br>
+                <div class="text-center">
+                    <p>Already a member? <a href="/login">Log In</a></p>
+                </div>
+            </form>
+        </div>
+    </div><br><br><br>
+
+    {% include "footer.html" %}
+
+</body>
+
+</html>

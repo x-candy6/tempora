@@ -1,0 +1,241 @@
+{% load static %}
+{% include "header.html" %}
+<style>
+    .carousel-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 10px;
+        background: inherit;
+        background-attachment: fixed;
+        overflow: hidden;
+    }
+
+    .carousel-caption::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.25)
+    }
+
+    .carousel-caption>h1,
+    .carousel-caption>p {
+        margin: 0;
+        color: white;
+        position: relative;
+        z-index: 1;
+    }
+
+    html,
+    body {
+        height: 100%;
+    }
+</style>
+
+<body>
+    {% block content %}
+    {% if user.is_authenticated %}
+    {% load static %}
+    {% include "registered_navbar.html" %}
+    {% else %}
+    {% load static %}
+    {% include "general_navbar.html" %}
+    {% endif %}
+    {% endblock %}
+
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                {% load static %}
+                <img src="{% static 'media/carousel_slide_1.jpg' %}" class="d-block w-100" width="500px"
+                    alt="First Slide">
+                <div class="container">
+                    <div class="carousel-caption text-left">
+                        <h1>Make Your Kids Playdated.</h1>
+                        <p>Find events and playdates for your kids, let them be accompanied!</p>
+                        {% if not user.is_authenticated %}
+                        <p><a class="btn btn-lg btn-primary" href="/register" role="button">Sign up today</a>
+                        </p>
+                        {% endif %}
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                {% load static %}
+                <img src="{% static 'media/carousel_slide_2.jpg' %}" class="d-block w-100" alt="Second Slide">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Enjoy Outdoor Activities.</h1>
+                        <p>Let kids enjoy the sunshine and fresh air togther!</p>
+                        <br><!-- <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p> -->
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                {% load static %}
+                <img src="{% static 'media/carousel_slide_3.jpg' %}" class="d-block w-100" alt="Third Slide">
+                <div class="container">
+                    <div class="carousel-caption text-right">
+                        <h1>Pets With Friends.</h1>
+                        <p>Your lovely pets need friend too, let them play together!</p>
+                        <br>
+                        <!-- <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <!-- Marketing messaging and featurettes
+      ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-lg-4">
+                {% load static %}
+                <img class="rounded-circle" src="{% static 'media/public_events.jpg' %}" alt="Generic placeholder image"
+                    width="140" height="140">
+                <h2>Public Events</h2>
+                <p>Tons of public events provided for you! Search and browse the upcoming public events, take your
+                    children and pets to have fun!</p>
+                <!-- <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p> -->
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                {% load static %}
+                <img class="rounded-circle" src="{% static 'media/events.jpg' %}" alt="Generic placeholder image"
+                    width="140" height="140">
+                <h2>Events From Members</h2>
+                <p>Find out other members event schedules. Join their events, meet your neighbors, and help your
+                    children and pets find friends!
+                </p>
+                <!-- <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p> -->
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                {% load static %}
+                <img class="rounded-circle" src="{% static 'media/groups.jpg' %}" alt="Generic placeholder image"
+                    width="140" height="140">
+                <h2>Groups</h2>
+                <p>Join the groups from your neighbors. Share your events and experiences with them. Make families
+                    with children and pets stay closer!</p>
+                <!-- <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p> -->
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">We Have the Latest Events.</h2>
+                <p class="lead">All events will be updated frequently to make sure you get the lastest information.
+                    You can browse all public events. You can even comment and sign up for other users' events
+                    if you are a registered user!</p>
+            </div>
+            <div class="col-md-5">
+                {% load static %}
+                <img class="featurette-image img-fluid mx-auto" src="{% static 'media/latest.jpg' %}"
+                    alt="Generic placeholder image">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading">We Connect Neighbors and Communities.</h2>
+                <p class="lead">You can add your neighbors as friends and join local groups from your community.
+                    Share experiences with your neighbors and make your community a bigger family.</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                {% load static %}
+                <img class="featurette-image img-fluid mx-auto" src="{% static 'media/community.jpg' %}"
+                    alt="Generic placeholder image">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">We Protect Your Data.</h2>
+                <p class="lead">We care about your and your families' privacy and will protect your data. Every
+                    registered user is verified and safe to you and your family.</p>
+            </div>
+            <div class="col-md-5">
+                {% load static %}
+                <img class="featurette-image img-fluid mx-auto" src="{% static 'media/privacy.jpg' %}"
+                    alt="Generic placeholder image">
+            </div>
+        </div>
+        <hr class="featurette-divider">
+    </div>
+
+    <footer class="text-center text-white bg-light sticky-bottom">
+        <!-- Grid container -->
+        <div class="container pt-3">
+            <!-- Section: Social media -->
+            <section>
+                <!-- Facebook -->
+                {% load static %}
+                <a href="#" class="mx-2"><img src="{% static 'media/facebook.png' %}"></a>
+
+                <!-- Instagram -->
+                <a href="#" class="mx-2"><img src="{% static 'media/instagram.png' %}"></a>
+
+                <!-- Twitter -->
+                <a href="#" class="mx-2"><img src="{% static 'media/twitter.png' %}"></a>
+
+                <!-- Tiktok -->
+                <a href="#" class="mx-2"><img src="{% static 'media/tiktok.png' %}"></a>
+
+                <!-- Reddit -->
+                <a href="#" class="mx-2"><img src="{% static 'media/reddit.png' %}"></a>
+
+                <!-- Github -->
+                <a href="#" class="mx-2"><img src="{% static 'media/github.png' %}"></a>
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center bg-light p-3">
+            <span class="text-dark ">
+                <a href="/termsofuse">Terms of Use | </a><a href="/privacy">Privacy Notice | </a><a
+                    href="/helpPage">Contact
+                    Us</a><br>
+            </span>
+            <span class="text-dark">Copyright © 2022 TheBabySitters. All rights reserved.</span>
+        </div>
+        <!-- Copyright -->
+    </footer>
+</body>
+
+</html>

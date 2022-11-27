@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>View all groups</title>
+    </head>
+    <body>
+        <!-- 
+                ░█▀▀░█▀█░█▀▄
+                ░█▀▀░█░█░█▀▄
+                ░▀░░░▀▀▀░▀░▀
+    ░█▀▄░█▀▀░█░█░█▀▀░█░░░█▀█░█▀█░█▄█░█▀▀░█▀█░▀█▀
+    ░█░█░█▀▀░▀▄▀░█▀▀░█░░░█░█░█▀▀░█░█░█▀▀░█░█░░█░
+    ░▀▀░░▀▀▀░░▀░░▀▀▀░▀▀▀░▀▀▀░▀░░░▀░▀░▀▀▀░▀░▀░░▀░
+        ░█░█░█▀▀░█▀▀░░░█▀█░█▀█░█░░░█░█
+        ░█░█░▀▀█░█▀▀░░░█░█░█░█░█░░░░█░
+        ░▀▀▀░▀▀▀░▀▀▀░░░▀▀▀░▀░▀░▀▀▀░░▀░
+     THIS CODE IS FOR PRODUCTION USE ONLY 
+     The code and views associated with this file are meant to be used
+     as a catalyst to build the search functionality.
+     As of now, search has not been implemented, but we need a way to view/navigate to
+     individual group pages. That is what this page is for.
+-->
+
+        <ul>
+            {% for group in groupList %}
+            <li>
+                <a href="{% url 'groupView' group_id=group.group_id %}">{{group.group_name}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

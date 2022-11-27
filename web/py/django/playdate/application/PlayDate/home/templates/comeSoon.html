@@ -1,0 +1,20 @@
+{% include "header.html" %}
+
+<body>
+    {% block content %}
+    {% if user.is_authenticated %}
+    {% load static %}
+    {% include "registered_navbar.html" %}
+    {% else %}
+    {% load static %}
+    {% include "general_navbar.html" %}
+    {% endif %}
+    {% endblock %}
+
+    <br><br><br>
+    <h2>This page is under construction</h2>
+
+    {% include "footer.html" %}
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+{% include "header.html" %}
+<!-- #marty -->
+
+<body>
+
+    {% block content %}
+    {% if user.is_authenticated %}
+    {% load static %}
+    {% include "registered_navbar.html" %}
+    {% else %}
+    {% load static %}
+    {% include "general_navbar.html" %}
+    {% endif %}
+    {% endblock %}
+    <br><br>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-8 text-center pt-3">
+                <h4>Take Kids to Ocean View @ 5 p.m. today</h4>
+                <img src="{% static 'media/ocean-view-park.jpg' %}" width="500px" height="500px"
+                    class="card-img-top px-5 py-5" alt="...">
+
+                <p class="text-center px-5">Ocean View Park is a beautiful and playful park in San Francisco East Bay
+                    Area. Children can have so much fun staying and playing together there. You can sign up and join us.
+                </p>
+                <a href="/events/signUpSucceed" class="btn btn-primary mt-2">Sign
+                    Up</a>
+            </div>
+
+            <div class="col-4 mx-auto pt-5">
+                <h4 class="text-left">Location:</h4>
+                <div class="dropdown-divider me-5"></div>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3148.864687570156!2d-122.30708657124816!3d37.886847014934936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085792c542c9dbb%3A0x2bf73eb47a109937!2sOcean%20View%20Park!5e0!3m2!1sen!2sus!4v1657974764198!5m2!1sen!2sus"
+                    width="350" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                <h4 class="pt-5">Hours:</h4>
+                <div class="dropdown-divider me-5"></div>
+                <p>Saturday: 7AM–9PM<br>
+                    Sunday: 7AM–9PM<br>
+                    Monday: 7AM–9PM<br>
+                    Tuesday: 7AM–9PM<br>
+                    Wednesday: 7AM–9PM<br>
+                    Thursday: 7AM–9PM<br>
+                    Friday: 7AM–9PM<br></p>
+            </div>
+            <div class="row mt-5">
+                <h4>Events From Other Users:</h4>
+                <div class="dropdown-divider"></div>
+                <div class="col card mx-2 my-2" style="border-radius: 15px; width: 18rem;">
+                    <img src="{% static 'media/oakland-zoo.jpg' %}" width="50px" height="200px"
+                        class="card-img-top  mt-2" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Let's go to Oakland Zoom this Saturday at 10 a.m.</p>
+                        <!-- Posted BY: <a href="#">Tom Taylor</a><br><br> -->
+                        Posted BY: Tom Taylor<br><br>
+                        <a href="#" class="btn btn-primary">View details</a>
+                        <a href="/events/signUpSucceed" class="btn btn-primary mx-2">Sign
+                            Up</a>
+                    </div>
+                </div>
+
+                <div class="col card mx-2 my-2" style="border-radius: 15px; width: 18rem;">
+                    <img src="{% static 'media/pets-out.jpg' %}" class="card-img-top mt-2" width="50px" height="200px"
+                        alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Take pets out for a fresh breath tomorrow afternoon.</p>
+                        <!-- Posted BY: <a href="#">Chris Jhonson</a><br><br> -->
+                        Posted BY: Chris Jhonson<br><br>
+                        <a href="#" class="btn btn-primary">View details</a>
+                        <a href="/events/signUpSucceed" class="btn btn-primary mx-2">Sign
+                            Up</a>
+                    </div>
+                </div>
+                <div class="col card mx-2 my-2" style="border-radius: 15px; width: 18rem;">
+                    <img src="{% static 'media/rain-splash.jpg' %}" class="card-img-top  mt-2" width="50px"
+                        height="200px" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Take your kids to enjoy the rain this Sunday.</p>
+                        <!-- Posted BY: <a href="#">Lucy White</a><br><br> -->
+                        Posted BY: Lucy White<br><br>
+                        <a href="#" class="btn btn-primary">View details</a>
+                        <a href="/events/signUpSucceed" class="btn btn-primary mx-2">Sign
+                            Up</a>
+                    </div>
+                </div>
+
+                <div class="col card mx-2 my-2" style="border-radius: 15px; width: 18rem;">
+                    <img src="{% static 'media/dog-beach.jpg' %}" class="card-img-top  mt-2" width="50px" height="200px"
+                        alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Dog friendly beach until sunset.<br><br><br>Posted BY: Brian Wood<br></p>
+                        <!-- Posted BY: <a href="#">Brian Wood</a><br><br> -->
+
+                        <a href="#" class="btn btn-primary">View details</a>
+                        <a href="/events/signUpSucceed" class="btn btn-primary mx-2">Sign
+                            Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="gsfooter mt-auto bg-light py-1 d-none d-md-flex sticky-bottom  mt-2">
+        <div class="container-fluid text-center text-md-left">
+            <span class="text-dark ">
+                <a href="/termsofuse">Terms of Use | </a><a href="/privacy">Privacy Notice | </a><a
+                    href="/helpPage">Contact Us</a><br>
+            </span>
+            <span class="text-dark">Copyright © 2022 TheBabySitters. All rights reserved.</span>
+        </div>
+
+    </footer>
+</body>
+
+</html>

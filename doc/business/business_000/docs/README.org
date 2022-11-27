@@ -1,0 +1,32 @@
+#+SETUPFILE: http://portalsf.surge.sh/static/org-themes/gray/gray.theme
+#+TITLE:
+#+AUTHOR:AndrewC
+#+DESCRIPTION:
+#+DATE:<2022-11-26 Sat>
+
+
+* Introduction
+  
+* Mission and Philosophy
+  
+* Main Kanban
+  |------+-------+------|
+  | TODO | DOING | DONE |
+  |------+-------+------|
+  |      |       |      |
+  |      |       |      |
+  |------+-------+------|
+  
+* Change Log
+  |---------+----------------|
+  | VERSION | DESCRIPTION    |
+  |---------+----------------|
+  |   0.0.0 | Initialization |
+  |         |                |
+  |---------+----------------|
+
+  
+* Digital
+
+* Physical
+  

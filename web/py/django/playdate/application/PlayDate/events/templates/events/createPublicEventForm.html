@@ -1,0 +1,63 @@
+{% load static %} {% include "header.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<!--
+░█▀▄░█▀▀░█░█░░░░░█░█░█▀▀░█▀▀░░░█▀█░█▀█░█░░░█░█
+░█░█░█▀▀░▀▄▀░▄▄▄░█░█░▀▀█░█▀▀░░░█░█░█░█░█░░░░█░
+░▀▀░░▀▀▀░░▀░░░░░░▀▀▀░▀▀▀░▀▀▀░░░▀▀▀░▀░▀░▀▀▀░░▀░
+This page is for devs to insert Public Events manually and will not be implemented in the final product.
+
+--->
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Create Public Event</title>
+    </head>
+
+    <body>
+        {% block content %} {% if user.is_authenticated %} {% load static %} {% include "registered_navbar.html" %}
+        {%else %}{% load static %} {% include "general_navbar.html" %} {% endif %}
+        <br />
+        <br />
+        <br />
+        <form method="POST" enctype="multipart/form-data">
+            <h1>Create A Public Event</h1>
+            {% csrf_token %} {{publicEventForm}}
+            <!-----
+            {{publicEventForm.name}} {{publicEventForm.event_url}} {{publicEventForm.address.city}}
+            {{publicEventForm.name}} {{publicEventForm.banner}} {{publicEventForm.category}}
+            <button class="btn btn-primary pt-2" type="submit">Create Public Event</button>
+            ---->
+            <button class="btn btn-primary pt-2" type="submit">Create Group</button>
+        </form>
+        {% endblock %}
+    </body>
+</html>
+<style>
+    body {
+        background-color: #7ecae6;
+    }
+
+    .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 0 solid rgba(0, 0, 0, 0.125);
+        border-radius: 0.25rem;
+    }
+
+    .main-body {
+        margin-top: 100px;
+        padding: 15px;
+    }
+
+    .card-body {
+        flex: 1 1 auto;
+        min-height: 1px;
+        padding: 1rem;
+    }
+</style>

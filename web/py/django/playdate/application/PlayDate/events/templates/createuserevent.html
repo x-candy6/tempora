@@ -1,0 +1,67 @@
+{% include "header.html" %}
+
+
+<body>
+    
+    {% block content %}
+    {% if user.is_authenticated %}
+    {% load static %}
+    {% include "registered_navbar.html" %}
+    {% else %}
+    {% load static %}
+    {% include "general_navbar.html" %}
+    {% endif %}
+    {% endblock %}
+        <h1>Create event</h1>
+
+        <div class="container">
+                <form method="POST" action="/events/public-events/createvent/">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label>Event Name </label>
+                        {{ form.name }}
+                    </div>
+                    <div class="form-group">
+                        <label>Event Url </label>
+                        {{ form.event_url }}
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        {{ form.category }}
+                    </div>
+                    <div class="form-group">
+                        <label>Street</label>
+                        {{ form.street }}
+                    </div>
+                    <div class="form-group">
+                        <label>City</label>
+                        {{ form.city }}
+                    </div>
+                    <div class="form-group">
+                        <label>State</label>
+                        {{ form.state }}
+                    </div>
+                    <div class="form-group">
+                        <label>Country</label>
+                        {{ form.country }}
+                    </div>
+                    <div class="form-group">
+                        <label>Zip code</label>
+                        {{ form.zipcode }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+
+        <!-- <div class="container" >
+                <form action="/createvent/" method="POST">
+                        {% csrf_token %}
+                        {{ form }}
+                        <input type="submit" value="Submit">
+                </form>
+
+        </div> -->
+       
+        {% include "footer.html" %}
+</body>
+        

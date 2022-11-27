@@ -1,0 +1,32 @@
+{% include "header.html" %}
+<!-- #marty -->
+
+<body style="background-color: #9de2ff;">
+
+    {% block content %}
+    {% if user.is_authenticated %}
+    {% load static %}
+    {% include "registered_navbar.html" %}
+    {% else %}
+    {% load static %}
+    {% include "general_navbar.html" %}
+    {% endif %}
+    {% endblock %}
+    <br><br><br><br>
+    <div class="container">
+        <h3 class="text-center">Congratulations! You already signed up for the event!
+        </h3>
+    </div>
+    <footer class="gsfooter mt-auto bg-light py-1 d-none d-md-flex fixed-bottom  mt-2">
+        <div class="container-fluid text-center text-md-left">
+            <span class="text-dark ">
+                <a href="/termsofuse">Terms of Use | </a><a href="/privacy">Privacy Notice | </a><a
+                    href="/helpPage">Contact Us</a><br>
+            </span>
+            <span class="text-dark">Copyright © 2022 TheBabySitters. All rights reserved.</span>
+        </div>
+
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+.about{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding-right: 20px ;
+    right: 50px;
+    margin-left: 20px;
+    width: 160px;
+}
+.about-drop-arrow{
+   position: absolute;
+   top: 10px;
+   right: 30px;
+}
+.about-drop-menu{
+    position: absolute;
+    top: 40px;
+    list-style: none;
+    background-color: rgba(254, 254, 254, 0.9);
+    color: black;
+    width: 150px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+.about-drop-menu li{
+    padding: 2px 0px;
+    color: black;
+    margin-right: 20px;
+    border-color:black;
+}
+.about-drop-menu li:hover {
+    color: rgba(153,148,238,1);
+}
+.about-drop-menu.open{
+    max-height: 300px;
+}
+.about-text{
+    color: blue;
+    left: 150px;
+}
+
+.filter{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    left: 5px;
+    margin-left: 20px;
+    padding-left: 20px;
+    bottom: -4px;
+    
+}
+.filter-name{
+    padding-top: 32px;
+    width: 25px;
+    color: blue;
+}
+.filter-drop-arrow{
+    margin-top: 50px;
+    margin-left: 20px;
+    padding-bottom: 9px;
+    margin-right: 16px;
+    right:50px;
+}
+.filter-drop-menu{
+    position: absolute;
+    width: 100px;
+    padding-right: 15%;
+    top: 80px;
+    list-style: none;
+    background-color: rgba(254, 254, 254, 0.9);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+.filter-drop-menu li{
+    padding: 2px 0px;
+    color: black;
+    margin-right: 20px;
+}
+.filter-drop-menu li:hover {
+    color: rgba(153,148,238,1);
+}
+.filter-drop-menu.open{
+    max-height: 300px;
+}
+.logIn{
+    color: white;
+    margin-right: 125px;
+    width: 75px;
+    background-color: rgb(164, 109, 223);
+    border: 2px solid rgba(0, 0, 0, 0.9);
+    border-radius: 20px;
+}
+.logo{
+    height: 50px;
+    padding-top: 10px;
+}
+.navbar-brand{
+    color: blue;
+}
+
+.search-button-text{
+    color: white;
+    background-color: blue;
+    border-color: #BEBEBE;
+}
+.search-button-text:hover {
+    color: white;
+    background: linear-gradient(120deg, rgb(153, 148, 238) 4%, rgba(79,9,121,0.7030456852791878) 45%, rgba(0,212,255,1) 94%);
+    border-color: #BEBEBE;
+  }
+.search-field{
+    padding-bottom: 20px;
+    width: 660px;
+    padding-top: 30px;
+    margin-right: 10px;
+    padding-right: 50px;
+}
+.signUp{
+    color: white;
+    margin-right: 15px;
+    width: 80px;
+    background-color: rgb(164, 109, 223);
+    border: 2px solid rgba(0, 0, 0, 0.9);
+    border-radius: 20px;
+}

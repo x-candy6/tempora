@@ -1,0 +1,46 @@
+{% include "header.html" %}
+
+<body style="background-color: #9de2ff;">
+    <div>
+        <a href="/">
+            <h5 style="text-align: center; margin-top: 50px; font-family: 'Gill Sans', sans-serif;color: #0d6efd;">
+                <b>PlayDate</b>
+            </h5>
+        </a>
+    </div>
+    <div class="card mx-auto mt-2" style="width: 30rem;">
+        <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted">Log-In:</h6>
+            <form class="login" style="width: 450px;" method="POST" action="">
+                {% csrf_token %}
+                <label for="username">
+                    <b>Username</b><br>
+                    <input type="text" id="username" name="username" size="30" maxlength="100"><br><br>
+                </label><br>
+                <label>
+                    <b>Password</b><br>
+                    <input type="password" name="password" size="30" maxlength="100"><br>
+                </label><br><br>
+
+                <div class="col text-align">
+                    <button class="btn btn-primary pt-2" type="submit">
+                        Log In
+                    </button>
+                    <a href="/resetPassword" >Forgot password?</a>
+                </div><br>
+                <div>
+                    <p>By continuing, you agree to PlayDate's <a href="/termsofuse">Terms of Use</a>
+                        and <a href="/privacy">Privacy Notice</a>.
+                    </p>
+                </div><br>
+                <div class="text-center">
+                    <p>Not a member? <a href="/register">Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% include "notificationModal.html" %}
+    {% include "footer.html" %}
+</body>
+
+</html>

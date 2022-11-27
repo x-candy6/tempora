@@ -1,0 +1,110 @@
+<!--
+░█▀▀░█▀▄░█▀▀░█▀█░▀█▀░█▀▀░░░█▀▀░█▀▄░█▀█░█░█░█▀█░░░█▀█░█▀█░█▀▀░█▀▀
+░█░░░█▀▄░█▀▀░█▀█░░█░░█▀▀░░░█░█░█▀▄░█░█░█░█░█▀▀░░░█▀▀░█▀█░█░█░█▀▀
+░▀▀▀░▀░▀░▀▀▀░▀░▀░░▀░░▀▀▀░░░▀▀▀░▀░▀░▀▀▀░▀▀▀░▀░░░░░▀░░░▀░▀░▀▀▀░▀▀▀
+Contributor(s): AndrewC, Victor C, 
+Version: 1.4.0
+Documentation page: http://bedev.playdate.surge.sh/docs.html
+Description: This page needs a lot of cleanup. Initially it was functional but someone carelessly pasted their code into the bottom part.
+There were 2 body tags, 4 load-static tags, other duplicates. As of now the invalid code has been commented out but in future iterations they need
+to be deleted.
+
+The rewritten code serves as referential material for future work.
+In order to style form elements please refer to forms.py where attributes such as styling and placeholders can be edited.
+-->
+{% load static %}{% include "header.html" %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Create Group</title>
+    </head>
+
+    <!--Why are there two <body>'s and 4 load static tags? Whoever wrote this just pasted their code at the end, this file needs cleanup-->
+
+    <!--
+<body style="background-color: #9de2ff;">
+    <br />
+    <br />
+    <br />
+    <form method="POST">
+    </form>
+</body> -->
+    <body style="background-color: #9de2ff">
+        {% if user.is_authenticated %} {% load static %} {% include "registered_navbar.html" %} {% else %} {% load static %} {% include "general_navbar.html" %} {% endif %}
+        <br />
+        <br />
+
+        <!--This h4 tag becomes covered by the navbar and does not show.
+        <h4 class="logo navbar-brand text-center">
+            <b>Create Your Group:</b>
+        </h4>
+        -->
+
+        <!--FIX-THIS: The top border is cut-off by the navbar-->
+        <div class="card mx-auto my-3" style="padding-top: 5vh; border: solid blue; height: 90vh; width: 70vw">
+            <div class="card-body">
+                <h1 style="text-align: center"><strong>Create a Group!</strong></h1>
+                <form class="register" enctype="multipart/form-data" style="align-items: center; width: 50vw" method="POST">
+                    {% csrf_token %}
+                    <label for="group name">Group Name:</label>
+                    {{createGroupForm.group_name}}
+                    <label for="group desc">Group Description:</label>
+                    {{createGroupForm.group_desc}}
+                    <br />
+                    <br />
+                    <label for="group tags">Keywords:</label>
+                    <p style="">
+                        <small>• Enter some keywords to help users find your group.<br />• Keywords should be separated by a comma.</small>
+                    </p>
+                    <p style=""><small></small></p>
+                    {{createGroupForm.tags}}
+
+                    <br />
+                    <br />
+                    <label for="banner">(optional) Upload a banner!</label>
+                    <br />
+                    {{createGroupForm.banner}}
+                    <button style="margin-left: 60%; margin-top: 1vh" class="btn btn-primary pt-2">Create Group</button>
+                </form>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <footer class="gsfooter mt-auto bg-light py-1 d-none d-md-flex fixed-bottom">
+            <div class="container-fluid text-center text-md-left">
+                <span class="text-dark"> <a href="/termsofuse">Terms of Use | </a><a href="/privacy">Privacy Notice | </a><a href="/helpPage">Contact Us</a><br /> </span>
+                <span class="text-dark">Copyright © 2022 TheBabySitters. All rights reserved.</span>
+            </div>
+        </footer>
+    </body>
+</html>
+
+<!--
+▄▖▄▖▄▖▖▖▄▖▖▖▄▖▄   ▄▖▄▖▄ ▄▖
+▌▌▙▘▌ ▙▌▐ ▌▌▙▖▌▌  ▌ ▌▌▌▌▙▖
+▛▌▌▌▙▖▌▌▟▖▚▘▙▖▙▘  ▙▖▙▌▙▘▙▖
+The code commented below are previous versions deemed for prototype use or are not functional but 
+may contain components that can be reused.
+-->
+
+<!--Static Form for horizontal prototype
+Original functional form was overwritten
+-->
+
+<!--
+<label for="groupname"><b>Group Name</b> </label><br>
+<input type="text" name="groupname" id="groupname" autofocus /><br>
+<label for="description"><b>Description</b> </label><br>
+<textarea name="description" id="description" ></textarea><br>
+<label for="name">
+    <b>Select an image</b>
+</label>
+<input type="file" id="file-input" accept="image/*" /><br>
+<br>
+<a class="col" href="/createdGroup">
+</a>
+-->

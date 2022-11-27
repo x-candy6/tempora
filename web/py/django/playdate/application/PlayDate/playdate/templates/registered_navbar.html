@@ -1,0 +1,142 @@
+{% url 'about' as about %}
+{% url 'publicevents' as publicevents %}
+{% url 'membersevents' as membersevents %}
+{% url 'publicevents' as publicevents %}
+{% url 'groups' as groups %}
+{% url 'myGroup' as myGroup %}
+{% url 'myEvent' as myEvent %}
+
+<style>
+    .active {
+        /* background-color:rgb(150, 152, 152); */
+        color: rgb(0, 6, 10);
+        /* border-radius: 10px; */
+        text-decoration: underline;
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg bg-light fixed-top">
+    <div class="container-fluid">
+        <a class="logo navbar-brand" href="/" style="font-family: 'Gill Sans', sans-serif;color:#0d6efd;">
+            <h5><b>PlayDate</b></h5>
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-lg-0">
+                <a class="nav-link {% if request.path == membersevents %} active {% endif %}" aria-current="page"
+                    href="/events/members-events/">Events</a>
+                <a class="nav-link {% if request.path == groups %} active {% endif %}" aria-current="page"
+                    href="/groups">Groups</a>
+
+            </ul>
+
+            <!-- <form class="search-field  button mx-auto d-flex" role="search" action="{% url 'events' %}" method="GET"
+                value="{{request.GET.q}}">
+                <div id="filter" class="dropdown">
+                    <button id="filterText" class="btn btn-primary dropdown-toggle" type="button"
+                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Search For
+                    </button>
+                    <ul id="list" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li class="options dropdown-item">All</a></li>
+                        <li class="options dropdown-item">Kids</a></li>
+                        <li class="options dropdown-item">Pets</a></li>
+                    </ul>
+                </div>
+                <input class="form-control me-1" type="search" name="q" value="{{request.GET.q}}" placeholder="City"
+                    aria-label="Search">
+                <button class="search-button-text btn btn-outline-success" name="submit" value="Search"
+                    type="submit">&#128269;</button>
+            </form> -->
+
+            <form class="search-field  button mx-auto d-flex" role="search" action="{% url 'events' %}" method="GET"
+                value="{{request.GET.q}}">
+                <div id="filter" class="dropdown">
+                    <select id="filterText" class="btn btn-primary dropdown-toggle" type="button"
+                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" name="category"
+                        id="select-item" onchange="SubmitEvent();">
+                        Search For
+                        <option selected="selected" value="All">All</option>
+                        <option value="Kids">Kids</option>
+                        <option value="Pets">Pets</option>
+                    </select>
+                </div>
+                <input class="form-control me-1" type="search" name="q" value="{{request.GET.q}}"
+                    placeholder="City, State, Zipcode" aria-label="Search">
+                <button class="search-button-text btn btn-outline-success" name="submit" value="Search"
+                    type="submit">&#128269;</button>
+            </form>
+
+            <script>
+                let filter = document.getElementById("filter");
+                let list = document.getElementById("list");
+                let filterText = document.getElementById("filterText");
+                let options = document.getElementsByClassName("options");
+
+                let aboutDrop = document.getElementById("aboutDrop");
+                let aboutList = document.getElementById("aboutList");
+
+                filter.onclick = function () {
+                    list.classList.toggle("open");
+                };
+                for (option of options) {
+                    option.onclick = function () {
+                        filterText.innerHTML = "Search " + this.innerHTML;
+                    };
+                }
+
+                aboutDrop.onclick = function () {
+                    aboutList.classList.toggle("open");
+                };
+            </script>
+
+            <ul class="navbar-nav mx-2 mb-lg-0">
+                <a class="nav-link {% if request.path == myGroup %} active {% endif %}" aria-current="page"
+                    href="/groups/myGroup">My Groups</a>
+                <a class="nav-link {% if request.path == myEvent %} active {% endif %}" aria-current="page"
+                    href="/events/my-events">My Events</a>
+                <a class="nav-link {% if request.path == about %} active {% endif %}" aria-current="page"
+                    href="/about">About</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" href="{% url 'about' %}"></a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/about/soujanya">Soujanya</a></li>
+                        <li><a class="dropdown-item" href="/about/andy">Andy</a></li>
+                        <li><a class="dropdown-item" href="/about/margaret">Margaret</a></li>
+                        <li><a class="dropdown-item" href="/about/martin">Martin</a></li>
+                        <li><a class="dropdown-item" href="/about/qin">Qin</a></li>
+                        <li><a class="dropdown-item" href="/about/william">William</a></li>
+                        <li><a class="dropdown-item" href="/about/victor">Victor</a></li>
+                    </ul>
+                </li>
+                {% load static %}
+
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <img src="{% static 'media/profile_icon.png' %}" width="30" height="30" />
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                        <li><a class="dropdown-item" href="/helpPage">Contact</a></li>
+                        <li><a class="dropdown-item" href="/logout">Log Out</a></li>
+                    </ul>
+                </div>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- 
+<div class="topnav">
+    <a href="/">Home</a>
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
+    <a href="/logout">Logout</a>
+    <a href="/groups/createGroup">Create A Group!</a>
+    <a href="/groups">Group</a>
+    <a href="/events">Event</a>
+    <a href="/events/createEvent">Create Event</a>
+</div>
+{% block content %} {% endblock %} -->

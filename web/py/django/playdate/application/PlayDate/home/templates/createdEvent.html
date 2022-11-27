@@ -1,0 +1,242 @@
+{% load static %}
+{% include "header.html" %}
+{% include "registered_navbar.html" %}
+
+<style>
+    body{margin-top:20px;
+background:#eee;
+padding-left: 20%;
+}
+
+.profile-widget {
+  position: relative;
+}
+.profile-widget .image-container {
+  background-size: cover;
+  background-position: center;
+  padding: 190px 0 10px;
+}
+.profile-widget .image-container .profile-background {
+  width: 100%;
+  height: auto;
+}
+.profile-widget .image-container .avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto -60px;
+  display: block;
+}
+.profile-widget .details {
+  padding: 50px 15px 15px;
+  text-align: center;
+}
+.tag{
+  padding-bottom: 10px;
+}
+.groupMembers{
+  color: black;
+  padding-right: 10px;
+}
+
+
+img.profile-photo-lg{
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+
+div.scroll {
+  margin:4px, 4px;
+  padding:4px;
+  width: 500px;
+  height: 110px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align:justify;
+  background-color: rgb(160, 215, 229);
+}
+.name{
+  position: relative;
+  bottom: 60px;
+  left: 90px;
+}
+.members{
+  padding-top: 10px;
+  padding-left: 10px;
+}
+.groupEvents{
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+</style>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        <div class="panel panel-white profile-widget">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="image-container bg2" style="background:url(https://cdn.pixabay.com/photo/2020/03/25/20/20/alpine-4968554_960_720.jpg)">  
+                        <img src={{event.banner}} class="avatar" alt="avatar"> 
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="details">
+                        <h4>{{event.name}}<i class="fa fa-sheild"></i></h4>
+                        <div>Created by: {{event.user.first_name}} {{event.user.last_name}}</div>
+                        <div>Description: {{event.desc}}</div>
+                        <h5>Event Date: {{event.datetime}}</h5>
+                        <div class="tag">Tags: hiking  hikers</div>
+                        <div class="mg-top-10">
+                            <a href="#" class="btn btn-success" id="btn">Attend Event</a>
+                        </div>
+                    </div>
+                </div>
+                 
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <h2 class="groupMembers">Event Attendees:</h2>
+  <div class="scroll">
+      <div class="members">
+        <div id="me" class="member">
+            <div class="row">
+              <div class="col-md-2 col-sm-2">
+                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="user" class="profile-photo-lg">
+              </div>
+              <div class="name">
+                <h5>You</h5>
+                <p>Cat: Zelda</p>
+                <a id="me" class="btn btn-danger dismiss-notification"  onclick="myFunction(this.id)">Remove attendee</a>                
+              </div>
+            </div>
+          </div>
+
+          <div id="member1" class="member">
+              <div class="row">
+                <div class="pic">
+                  <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user" class="profile-photo-lg">
+                </div>
+                <div class="name">
+                  <h5>Bill Overbeck</h5>
+                  <p>Kids: John and Michael</p>
+                  <a id="member1" class="btn btn-danger dismiss-notification"  onclick="myFunction(this.id)">Remove attendee</a>
+                </div>
+              </div>
+            </div>
+            <div id="member2" class="member">
+              <div class="row">
+                <div class="col-md-2 col-sm-2">
+                  <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="user" class="profile-photo-lg">
+                </div>
+                <div class="name">
+                  <h5>Emma Johnson</h5>
+                  <p>Kid: Peter</p>
+                  <a id="member2" class="btn btn-danger dismiss-notification"  onclick="myFunction(this.id)">Remove attendee</a>               
+                </div>
+              </div>
+            </div>
+            <div id="member3" class="member">
+              <div class="row">
+                <div class="col-md-2 col-sm-2">
+                  <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="user" class="profile-photo-lg">
+                </div>
+                <div class="name">
+                  <h5>Nora Wilson</h5>
+                  <p>Dog: Spot </p>
+                  <a id="member3" class="btn btn-danger dismiss-notification"  onclick="myFunction(this.id)">Remove attendee</a>                
+                </div>
+              </div>
+            </div>
+            <div id="member4" class="member">
+              <div class="row">
+                <div class="col-md-2 col-sm-2">
+                  <img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="user" class="profile-photo-lg">
+                </div>
+                <div class="name">
+                  <h5>Diana Amber</h5>
+                  <p>Cat: Sam</p>
+                  <a id="member4" class="btn btn-danger dismiss-notification"  onclick="myFunction(this.id)">Remove attendee</a>                
+                </div>
+              </div>
+            </div>
+            <div id="member5" class="member">
+              <div class="row">
+                <div class="col-md-2 col-sm-2">
+                  <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="user" class="profile-photo-lg">
+                </div>
+                <div class="name">
+                  <h5>Addison Thomas</h5>
+                  <p>Kid: David </p>
+                  <p>Dog: Max </p>
+                  <a id="member5" class="btn btn-danger dismiss-notification"  onclick="myFunction(this.id)">Remove attendee</a>                
+                </div>
+              </div>
+            </div>
+            <div id="member6" class="member">
+              <div class="row">
+                <div class="col-md-2 col-sm-2">
+                  <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="user" class="profile-photo-lg">
+                </div>
+                <div class="name">
+                  <h5>Jonathon Thompson</h5>
+                  <p>Kids: Cindy and Lisa</p>
+                  <p>Dog: Rex</p>
+                  <a id="member6" class="btn btn-danger dismiss-notification"  onclick="myFunction(this.id)">Remove attendee</a>               
+                 </div>
+              </div>
+            </div>
+            <div id="member7" class="member">
+              <div class="row">
+                <div class="col-md-2 col-sm-2">
+                  <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user" class="profile-photo-lg">
+                </div>
+                <div class="name">
+                  <h5>Olivia Steward</h5>
+                  <p>Kid: Heather</p>
+                  <a id="member7" class="btn btn-danger dismiss-notification"  onclick="myFunction(this.id)">Remove attendee</a>                
+                </div>
+              </div>
+            </div>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+    const btn = document.getElementById('btn');
+    const me = document.getElementById("me")
+    if(btn.textContent === "Attend Event"){
+        document.getElementById("me").style.display="none"; 
+    }
+
+    //Change button text on click
+    btn.addEventListener('click', function handleClick() {
+    if(btn.textContent === "Attend Event"){
+        btn.textContent = "Attending " + "\u2713";
+        btn.style.backgroundColor = "Blue";
+        document.getElementById("me").style.display="block"; 
+    }
+    else{
+        btn.textContent = 'Attend Event';
+        btn.style.backgroundColor = "Green";
+        document.getElementById("me").style.display="none"; 
+    }});
+
+    function myFunction(id) { 
+	    document.getElementById(id).style.display="none";
+        if(id=== "me"){
+            btn.textContent = 'Attend Event'
+        } 
+  }
+</script>

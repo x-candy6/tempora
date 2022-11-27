@@ -1,0 +1,50 @@
+{% include "header.html" %}
+
+
+<body>
+    {% block content %}
+    {% if user.is_authenticated %}
+    {% load static %}
+    {% include "registered_navbar.html" %}
+    {% else %}
+    {% load static %}
+    {% include "general_navbar.html" %}
+    {% endif %}
+    {% endblock %}
+    <br><br><br>
+    <div class="container">
+        <div class="text-center">
+            <h3>Software Engineering class SFSU</h3>
+            <h4>Summer 2022</h4>
+            <h4>Section 01 <br> Team 03</h4>
+            <br>
+            <h4 class="lead">The BabySitters</h4>
+            <div class="fst-italic">
+                <p>Our aim is to make your kids and pets free time memorable by connecting them with their playdates.
+                </p>
+            </div><br>
+        </div>
+
+
+        <div class="d-grid ms-5 gap-3 justify-content-center">
+            <button type="button" class="btn btn-info rounded-pill" onclick="location.href='soujanya/'"> Team Member 1
+                {{member1}}</button>
+            <button type="button" class="btn btn-info rounded-pill" onclick="location.href='andy/'"> Team Member 2
+                {{member2}}</button>
+            <button type="button" class="btn btn-info rounded-pill" onclick="location.href='margaret/'"> Team Member 3
+                {{member3}}</button>
+            <button type="button" class="btn btn-info rounded-pill" onclick="location.href='martin/'"> Team Member 4
+                {{member4}}</button>
+            <button type="button" class="btn btn-info rounded-pill" onclick="location.href='qin/'"> Team Member 5
+                {{member5}}</button>
+            <button type="button" class="btn btn-info rounded-pill" onclick="location.href='william/'"> Team Member 6
+                {{member6}}</button>
+            <button type="button" class="btn btn-info rounded-pill" onclick="location.href='victor/'"> Team Member 7
+                {{member7}}</button>
+        </div> <br /> <br /> <br />
+    </div>
+
+    {% include 'footer.html' %}
+</body>
+
+</html>

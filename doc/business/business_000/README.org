@@ -1,0 +1,357 @@
+#+SETUPFILE: http://portalsf.surge.sh/static/org-themes/gray/gray.theme
+#+TITLE: Official_Entity_Documentation_Template
+#+OPTIONS: ^:nil
+#+AUTHOR:AndrewC
+#+DESCRIPTION: A Template for business000
+#+DATE:<2022-11-27 Sun>
+
+* Introduction
+  
+* Main Kanban
+  
+* Change Log
+  
+* script
+
+* Contents
+** Architecture
+    docs
+
+        administration
+
+            board_of_directors
+
+            board_resolutions
+
+            business_analysis
+
+            business_assessment
+
+            business_checklists
+
+            business_plan
+
+            business_procedures
+
+            business_strategy
+
+            clients_and_prospects
+
+            company_policies
+
+            competitors
+
+            consultants_and_contractors
+
+            creditors_and_lenders
+
+            distributors_and_resellers
+
+            employees
+
+            management
+
+            meeting_minutes
+
+            partners_and_associates
+
+            shareholder_and_investors
+
+            suppliers_and_providers
+
+        business_plan
+
+            business_initiation
+
+            business_loans
+
+            business_plan_examples
+
+            business_plan_templates
+
+            business_plan_writeup_guide
+
+            executive_summary
+
+            financial_projections
+
+            incorporation
+
+            shareholders_agreement
+
+            stock_equity_financing
+
+        development
+
+            project
+
+                process
+
+                    estimates.org
+
+                    plans.org
+
+                    standards.org
+
+                    working_papers.org
+
+                product
+
+                    system
+
+                        design_and_architecture.org
+
+                        product_roadmap.org
+
+                        requirements.org
+
+                        support.org
+
+                        testing.org
+
+                        user_experience_design.org
+
+                    user
+
+                        system_administration.org
+
+        finance_and_accounting
+
+            accounting
+
+            balance_sheets
+
+            banking
+
+            buy_sell_shares
+
+            cash_flow_projections
+
+            convertible_notes
+
+            credit_and_collection
+
+            credit_applications
+
+            due_diligence
+
+            employee_profit_sharing
+
+            employee_stock_option
+
+            equity_capital_funding
+
+            financial_projections
+
+            financial_statements
+
+            financing
+
+            income_statements
+
+            insurance
+
+            invoices_and_receipts
+
+            loans
+
+            payments
+
+            profit_and_loss_statements
+
+            purchase_orders
+
+            sales_projections
+
+            term_sheets
+
+            venture_capital
+
+        human_resources
+
+            behavior_and_discipline
+
+            code_of_conduct
+
+            company_policies
+
+            employee
+
+                background_and_reference_validation
+
+                employee_benefits
+
+                forms
+
+                handbook
+
+                hiring
+
+                letters
+
+                records
+
+                termination
+
+            health_and_medical
+
+            imdemnity_and_compensation
+
+            interview_guides
+
+            job_descriptions
+
+            motivation_and_appreciation
+
+            payroll_management
+
+            performance_reviews
+
+            staff_management
+
+            surveys_and_feedback
+
+            vacation_and_abscences
+
+            work_from_home
+
+        initiation
+
+            SWOT_analysis
+
+            business_accounting
+
+            business_idea
+
+            business_incorporation
+
+            business_loans
+
+            business_model
+
+            business_plan_kit
+
+            business_website
+
+            competitive_analysis
+
+            customer_surveys
+
+            entrepreneur_self_evaluation
+
+            financial_projections
+
+            hiring
+
+            industry_analysis
+
+            market_research
+
+            market_tests
+
+            raising_capital
+
+            shareholders_agreement
+
+            startup_budget
+
+        legal_agreements
+
+            affidavits
+
+            agency_agreements
+
+            by_laws
+
+            confidentiality_agreements
+
+            consulting_agreements
+
+            contract_termination
+
+            contractor_agreements
+
+            convertible_note_and_debenture
+
+            deeds
+
+            development_agreements
+
+            distribution_agreements
+
+            employee_agreements
+
+            equipment_agreements
+
+            exclusivity_agreements
+
+            franchise_agreements
+
+            guaranties_and_collateral
+
+            incorporation_agreements
+
+            joint_venture_agreements
+
+            ownership
+
+        product_and_operations
+
+            equipment_and_machinery
+
+            product_management
+
+            production_management
+
+            purchasing_and_ordering
+
+            quality_assurance
+
+            receiving
+
+            research_and_development
+
+            shipping
+
+            storage_and_inventory
+
+            suppliers_and_vendors
+
+        sales_and_marketing
+
+            adverts
+
+            bids_and_quotes
+
+            call_center
+
+            competitive_analysis
+
+            customers
+
+                customer_feedback
+
+                customer_relationships
+
+                customer_service
+
+                customer_surveys
+
+            growth
+
+            marketing
+
+            press_and_media
+
+            sales
+
+                sales_letters
+
+                sales_proposals
+
+                sales_representatives
+
+            website
+169  directories
+
+
