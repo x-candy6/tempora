@@ -1,4 +1,4 @@
-#+TITLE: 〇T〇E〇M〇P〇O〇R〇A〇
+#+TITLE: TEMPORA
 #+AUTHOR:AndrewC
 #+DESCRIPTION:Fast and Optimized templates for project planning
 #+DATE:<2022-11-27 Sun>
